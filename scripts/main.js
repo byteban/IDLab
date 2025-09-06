@@ -65,3 +65,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+// Copy to clipboard function
+function copyToClipboard() {
+    const url = window.location.href;
+    navigator.clipboard.writeText(url).then(() => {
+        const btn = event.target;
+        const originalText = btn.textContent;
+        btn.textContent = '✅ Copied!';
+        setTimeout(() => {
+            btn.textContent = originalText;
+        }, 2000);
+    }).catch(() => {
+        const btn = event.target;
+        const originalText = btn.textContent;
+        btn.textContent = '❌ Failed';
+        setTimeout(() => {
+            btn.textContent = originalText;
+        }, 2000);
+    });
+}

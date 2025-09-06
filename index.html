@@ -116,14 +116,19 @@
     <section id="tutorials" class="section">
         <div class="container">
             <h2>Tutorials</h2>
-            <div class="tutorials-grid">
-                <div class="tutorial-card">
-                    <h3>Getting Started</h3>
-                    <p>Learn the basics of IDLab</p>
+            <div class="tutorial-video-container">
+                <div class="video-wrapper">
+                    <iframe 
+                        src="https://www.youtube.com/embed/_NzS9kbN21Y?si=GuxVtH-s7HScGPGI" 
+                        title="IDLab Tutorial - Getting Started" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
                 </div>
-                <div class="tutorial-card">
-                    <h3>Advanced Features</h3>
-                    <p>Master advanced ID creation techniques</p>
+                <div class="video-description">
+                    <h3>Complete IDLab Tutorial</h3>
+                    <p>Watch this comprehensive tutorial to learn how to use IDLab for creating professional ID cards. This video covers everything from getting started to advanced features.</p>
                 </div>
             </div>
         </div>
@@ -135,7 +140,15 @@
                 <h2>Templates</h2>
                 <div class="templates-grid">
                     <div class="template-card">
-                        <div class="template-preview"><span>Free Pack</span></div>
+                        <div class="template-preview">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1bc098" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 6h18l-2 13H5L3 6z"></path>
+                                <path d="m3 6-2-2"></path>
+                                <path d="M7 10h10"></path>
+                                <circle cx="12" cy="15" r="1"></circle>
+                            </svg>
+                            <span>Free Pack</span>
+                        </div>
                         <div class="template-info">
                             <h3>Free Backgrounds</h3>
                             <p class="small">Starter set for schools and basic business IDs.</p>
@@ -143,7 +156,12 @@
                         </div>
                     </div>
                     <div class="template-card">
-                        <div class="template-preview"><span>Custom</span></div>
+                        <div class="template-preview">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1bc098" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12 2 15.09 8.26 22 9 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9 8.91 8.26 12 2"></polygon>
+                            </svg>
+                            <span>Premium</span>
+                        </div>
                         <div class="template-info">
                             <h3>Premium / Custom</h3>
                             <p class="small">Need a unique background? Request a bespoke design.</p>
@@ -163,10 +181,10 @@
                 <div class="share-card">
                     <h3>Quick Share</h3>
                     <div class="share-buttons">
-                        <button class="share-btn" data-network="copy" aria-label="Copy site link">Copy Link</button>
-                        <a class="share-btn" data-network="twitter" target="_blank" rel="noopener" aria-label="Share on X (Twitter)">X / Twitter</a>
-                        <a class="share-btn" data-network="facebook" target="_blank" rel="noopener" aria-label="Share on Facebook">Facebook</a>
-                        <a class="share-btn" data-network="linkedin" target="_blank" rel="noopener" aria-label="Share on LinkedIn">LinkedIn</a>
+                        <button class="share-btn" onclick="copyToClipboard()" aria-label="Copy site link">📋 Copy Link</button>
+                        <a class="share-btn" href="https://twitter.com/intent/tweet?text=Check%20out%20IDLab%20-%20Professional%20ID%20Card%20Creation%20Software&url=https://idlab.studio" target="_blank" rel="noopener" aria-label="Share on X (Twitter)">🐦 Twitter</a>
+                        <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https://idlab.studio" target="_blank" rel="noopener" aria-label="Share on Facebook">📘 Facebook</a>
+                        <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https://idlab.studio" target="_blank" rel="noopener" aria-label="Share on LinkedIn">💼 LinkedIn</a>
                     </div>
                 </div>
                 <div class="share-card">
@@ -215,7 +233,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="../idlab.png" alt="IDLab Logo" class="logo">
+                    <img src="assets/idlab.ico" alt="IDLab Logo" class="logo">
                 </div>
                 <div class="footer-links">
                     <a href="about.html">About</a>
@@ -225,9 +243,9 @@
                     <a href="#contact">Contact</a>
                 </div>
                 <div class="footer-social">
-                    <a href="#" class="social-link">Twitter</a>
-                    <a href="#" class="social-link">Facebook</a>
-                    <a href="#" class="social-link">LinkedIn</a>
+                    <a href="https://facebook.com/IDLabZambia" target="_blank" rel="noopener" class="social-link">Facebook</a>
+                    <a href="https://wa.me/260980611865?text=Hello%20IDLab%2C%20I%20would%20like%20to%20request%20a%20license%20key." target="_blank" rel="noopener" class="social-link">WhatsApp</a>
+                    <a href="https://t.me/+QNH3A6V6_oo4ZmRk" target="_blank" rel="noopener" class="social-link">Telegram</a>
                 </div>
             </div>
             <div class="footer-bottom">
