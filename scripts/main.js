@@ -111,14 +111,14 @@ function copyToClipboard() {
     navigator.clipboard.writeText(url).then(() => {
         const btn = event.target;
         const originalText = btn.textContent;
-        btn.textContent = '✅ Copied!';
+        btn.textContent = '✓ Copied!';
         setTimeout(() => {
             btn.textContent = originalText;
         }, 2000);
     }).catch(() => {
         const btn = event.target;
         const originalText = btn.textContent;
-        btn.textContent = '❌ Failed';
+        btn.textContent = '✗ Failed';
         setTimeout(() => {
             btn.textContent = originalText;
         }, 2000);

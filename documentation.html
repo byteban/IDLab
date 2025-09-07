@@ -6,6 +6,7 @@
     <title>Documentation - IDLab</title>
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="icon" type="image/x-icon" href="assets/idlab.ico">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.js"></script>
     <style>
         /* Documentation-specific styles */
         .docs-sidebar {
@@ -323,18 +324,18 @@
                         
                         <div class="nav-section">User Guide</div>
                         <ul>
-                            <li><a href="#setup">Setting Up</a></li>
-                            <li><a href="#pupil-data">Managing Pupil Data</a></li>
-                            <li><a href="#photos">Managing Photos</a></li>
-                            <li><a href="#generating">Generating ID Cards</a></li>
-                            <li><a href="#printing">Printing</a></li>
+                            <li><a href="#profile-setup">Profile Setup</a></li>
+                            <li><a href="#student-data">Student Data</a></li>
+                            <li><a href="#photo-management">Photo Management</a></li>
+                            <li><a href="#generating-cards">Generating Cards</a></li>
+                            <li><a href="#printing">Printing Cards</a></li>
                         </ul>
                         
                         <div class="nav-section">Support</div>
                         <ul>
                             <li><a href="#troubleshooting">Troubleshooting</a></li>
                             <li><a href="#faq">FAQ</a></li>
-                            <li><a href="#support">License & Support</a></li>
+                            <li><a href="#contact">Contact & Support</a></li>
                         </ul>
                     </nav>
                 </aside>
@@ -344,49 +345,59 @@
                     <!-- Introduction -->
                     <section id="introduction" class="docs-section">
                         <h2>Introduction</h2>
-                        <p>IDLab is a comprehensive solution for generating professional school ID cards, developed specifically for Zambian schools and businesses. Created by Emmanuel Ngwenyama, IDLab simplifies the process of creating identification cards for pupils, particularly for ECZ examination candidates, without requiring heavy software like Photoshop or CorelDRAW.</p>
+                        <p>IDLab is a comprehensive desktop application designed to simplify the creation of professional ID cards for schools and businesses in Zambia. Developed by Emmanuel Ngwenyama, IDLab addresses the challenges faced by educational institutions, particularly when generating examination ID cards for ECZ candidates.</p>
                         
-                        <p>The application provides an end-to-end solution from data entry to final printing, with specialized features for managing photos, customizing card designs, and handling large batches of student IDs efficiently.</p>
+                        <p>Traditional ID card creation often requires complex design software like Photoshop or CorelDRAW, which can be expensive and difficult to learn. IDLab provides an all-in-one solution with an intuitive interface that manages student data, photos, and card design in one place, making the entire process faster and more efficient.</p>
+
+                        <p>IDLab works completely offline, allowing schools in areas with limited internet connectivity to create professional-quality ID cards for their students and staff without requiring cloud services or license activation.</p>
                     </section>
 
                     <!-- Features -->
                     <section id="features" class="docs-section">
                         <h2>Features</h2>
                         
-                        <h3>Core Features</h3>
-                        <div class="feature-grid">
-                            <div class="feature-item">
-                                <h4>Profile Management</h4>
-                                <p>Create and switch between multiple school or business profiles</p>
-                            </div>
-                            <div class="feature-item">
-                                <h4>Pupil Data Management</h4>
-                                <p>Import, export, add, edit, and search pupil information</p>
-                            </div>
-                            <div class="feature-item">
-                                <h4>Photo Handling</h4>
-                                <p>Automatic photo matching, renaming wizard, and status tracking</p>
-                            </div>
-                            <div class="feature-item">
-                                <h4>ID Card Design</h4>
-                                <p>Custom templates, logo support, and color customization</p>
-                            </div>
-                            <div class="feature-item">
-                                <h4>Output Options</h4>
-                                <p>Export to PDF, print layouts, and single image export</p>
-                            </div>
-                            <div class="feature-item">
-                                <h4>Category Filtering</h4>
-                                <p>Generate IDs for specific grades or forms</p>
-                            </div>
-                        </div>
-
-                        <h3>Additional Features</h3>
+                        <h3>Profile Management</h3>
                         <ul class="about-highlights">
-                            <li>Android App for photo capture with automatic exam number tagging</li>
-                            <li>Cloud Backup and restore capabilities</li>
-                            <li>License Management within the application</li>
-                            <li>Automatic update checking and installation</li>
+                            <li>Multiple Profiles: Create and switch between different school or business profiles</li>
+                            <li>User-Type Customization: Specialized interfaces for schools and businesses</li>
+                            <li>Profile Setup Wizard: Easy step-by-step profile creation</li>
+                        </ul>
+
+                        <h3>Data Management</h3>
+                        <ul class="about-highlights">
+                            <li>Pupil Database: Add, edit, delete, and search student records</li>
+                            <li>CSV Import/Export: Easily import data from CSV files or export your database</li>
+                            <li>Bulk Operations: Manage large student datasets efficiently</li>
+                            <li>Grade/Form Filtering: Filter students by grade level (Grade 7, 9, 12, Form 4)</li>
+                            <li>Search Function: Quickly find specific students</li>
+                            <li>Undo/Redo: Track changes with history support</li>
+                        </ul>
+
+                        <h3>Photo Management</h3>
+                        <ul class="about-highlights">
+                            <li>Photo Matching System: Match photos with student exam numbers</li>
+                            <li>Renaming Wizard: Tool to help rename and match photos to correct students</li>
+                            <li>Status Tracking: See which students have photos and which don't</li>
+                            <li>Gallery View: Browse unassigned photos and assign them to students</li>
+                            <li>Batch Processing: Handle large numbers of photos efficiently</li>
+                        </ul>
+
+                        <h3>ID Card Design</h3>
+                        <ul class="about-highlights">
+                            <li>Custom Templates: Use included templates or create your own</li>
+                            <li>School Branding: Add school logo and coat of arms</li>
+                            <li>Color Customization: Choose colors for borders, text, and headers</li>
+                            <li>School Motto/Year: Add custom text elements to cards</li>
+                            <li>Preview System: Live preview as you make design changes</li>
+                            <li>Back Side Text: Create custom text for the back of cards</li>
+                        </ul>
+
+                        <h3>Output Options</h3>
+                        <ul class="about-highlights">
+                            <li>PDF Generation: Export multiple cards to a single PDF document</li>
+                            <li>Individual Images: Export each card as a separate image file</li>
+                            <li>Print Layout Preview: See how cards will arrange on printed pages</li>
+                            <li>Back Side PDF: Generate separate PDFs for reverse side of cards</li>
                         </ul>
                     </section>
 
@@ -397,31 +408,31 @@
                         <h3>System Requirements</h3>
                         <div class="requirements-list">
                             <ul>
-                                <li>Windows 7 or higher</li>
-                                <li>4GB RAM (minimum)</li>
+                                <li>Windows 7 or higher (Windows 10/11 recommended)</li>
+                                <li>4GB RAM minimum (8GB recommended)</li>
                                 <li>100MB free disk space</li>
-                                <li>Internet connection (for activation and updates)</li>
+                                <li>1024x768 screen resolution or higher</li>
                             </ul>
                         </div>
 
                         <h3>Installation Steps</h3>
                         <ol class="step-list">
-                            <li><strong>Download the installer:</strong> Visit <a href="download.html">IDLab Desktop App</a> and save the installer file to your computer</li>
-                            <li><strong>Run the installer:</strong> Locate the downloaded file (IDLab_Installer) and double-click to run, then follow the on-screen instructions</li>
-                            <li><strong>First Launch:</strong> Open IDLab from the Start menu or desktop shortcut. The application will prompt you to set up a profile</li>
-                            <li><strong>License Activation:</strong> Enter your license key when prompted. If you don't have one, you can request it through the application</li>
-                            <li><strong>Templates (Recommended):</strong> Download the <a href="free-templates.html">IDLab Templates</a> and extract to an easily accessible location</li>
-                            <li><strong>Mobile App (Optional):</strong> For photo capture, download the IDLab Android App and install on your Android device</li>
+                            <li><strong>Download the Installer:</strong> Download the IDLab installer from the official source and save the file to a location you can easily access</li>
+                            <li><strong>Run the Installer:</strong> Locate the downloaded file (usually named "IDLab_Installer.exe"), double-click to run the installer. If prompted by Windows security, click "Yes" to allow the installation</li>
+                            <li><strong>Follow Instructions:</strong> Follow the on-screen instructions to complete the installation</li>
+                            <li><strong>First Launch:</strong> Launch IDLab from the desktop shortcut or Start menu. The application will open with a splash screen and prompt you to set up your profile</li>
+                            <li><strong>Template Installation (Optional):</strong> For best results, download the IDLab Templates package, extract the templates to a folder you can easily access</li>
                         </ol>
                     </section>
 
-                    <!-- Setup -->
-                    <section id="setup" class="docs-section">
+                    <!-- Profile Setup -->
+                    <section id="profile-setup" class="docs-section">
                         <h2>Setting Up Your Profile</h2>
                         
-                        <h3>Create a Profile</h3>
+                        <h3>Create a New Profile</h3>
                         <ol class="step-list">
-                            <li>On first launch, select your user type (School or Business)</li>
+                            <li>When first launching IDLab, the Profile Setup window appears</li>
+                            <li>Select your user type: School or Business</li>
                             <li>Enter your school/business name, district, and address</li>
                             <li>Click "Save Profile"</li>
                         </ol>
@@ -430,110 +441,131 @@
                         <ol class="step-list">
                             <li>Go to Settings → Switch Profile</li>
                             <li>Select a profile from the list</li>
+                            <li>Click "Switch Profile"</li>
                         </ol>
                     </section>
 
-                    <!-- Pupil Data -->
-                    <section id="pupil-data" class="docs-section">
-                        <h2>Managing Pupil Data</h2>
+                    <!-- Student Data -->
+                    <section id="student-data" class="docs-section">
+                        <h2>Managing Student Data</h2>
                         
-                        <h3>Import Pupil Data</h3>
+                        <h3>Importing Student Data</h3>
                         <ol class="step-list">
-                            <li>Go to Pupils → Import Pupil List</li>
-                            <li>Select a CSV file with the required columns (Name, School, Grade/Form, Exam Number, Sex, D O B)</li>
+                            <li>Go to the "Pupil Data Entry" tab</li>
+                            <li>Click the "Import Pupil List" button (or use Pupils → Import Pupil List)</li>
+                            <li>Select your CSV file (must include columns: Name, School, Grade/Form, Exam Number, Sex, D O B)</li>
+                            <li>Review imported data in the table</li>
                         </ol>
 
-                        <h3>Add Pupils Manually</h3>
+                        <h3>Manually Adding Students</h3>
                         <ol class="step-list">
                             <li>In the "Pupil Data Entry" tab, click "Add Pupil"</li>
-                            <li>Fill in the required information</li>
-                            <li>Click "Save"</li>
+                            <li>Fill in the student details in the form</li>
+                            <li>Click "Save" to add the student to your database</li>
                         </ol>
 
-                        <h3>Edit Pupil Information</h3>
+                        <h3>Editing Student Records</h3>
                         <ol class="step-list">
-                            <li>Double-click on any cell in the data table</li>
-                            <li>Edit the information</li>
-                            <li>Press Enter to save</li>
+                            <li>Double-click on any cell in the data table to edit</li>
+                            <li>Make your changes and press Enter to save</li>
+                            <li>Use Ctrl+Z to undo changes if needed</li>
                         </ol>
 
-                        <h3>Search and Filter</h3>
+                        <h3>Searching and Filtering</h3>
                         <ul class="about-highlights">
-                            <li>Use the search box to find specific pupils</li>
+                            <li>Use the search box to find specific students</li>
                             <li>Use the grade/form dropdown to filter by level</li>
+                            <li>Click "Clear" to reset filters</li>
                         </ul>
+
+                        <h3>Exporting Student Data</h3>
+                        <ol class="step-list">
+                            <li>Go to Pupils → Export Pupil List</li>
+                            <li>Choose a location to save your CSV file</li>
+                            <li>All data or filtered results will be exported</li>
+                        </ol>
                     </section>
 
-                    <!-- Photos -->
-                    <section id="photos" class="docs-section">
+                    <!-- Photo Management -->
+                    <section id="photo-management" class="docs-section">
                         <h2>Managing Photos</h2>
                         
-                        <h3>Set Up Photo Folder</h3>
+                        <h3>Setting Up the Photos Folder</h3>
                         <ol class="step-list">
                             <li>In the "Generate IDs" tab, click "Photos Folder"</li>
-                            <li>Select a folder containing pupil photos</li>
-                            <li>Photos should be named with exam numbers for automatic matching</li>
+                            <li>Select a folder containing your student photos</li>
+                            <li>Photos should ideally be named with exam numbers for automatic matching</li>
                         </ol>
 
                         <h3>Using the Renaming Wizard</h3>
                         <ol class="step-list">
                             <li>Go to the "ID Photo Tools" tab</li>
                             <li>Click on the "Renaming Wizard" sub-tab</li>
-                            <li>Select an unmatched photo from the gallery</li>
-                            <li>Find and select the correct pupil from the list</li>
+                            <li>Browse unmatched photos in the gallery</li>
+                            <li>Find and select the correct student from the list</li>
                             <li>Click "Assign Photo to Pupil"</li>
                         </ol>
 
                         <h3>Checking Photo Status</h3>
                         <ol class="step-list">
                             <li>Go to the "Management" sub-tab</li>
-                            <li>Review which pupils have photos and which don't</li>
-                            <li>Use "Export Unmatched Lists" to get lists of pupils missing photos</li>
+                            <li>Review which students have photos and which don't</li>
+                            <li>Use "Export Unmatched Lists" to create lists of students missing photos</li>
                         </ol>
                     </section>
 
-                    <!-- Generating -->
-                    <section id="generating" class="docs-section">
+                    <!-- Generating Cards -->
+                    <section id="generating-cards" class="docs-section">
                         <h2>Generating ID Cards</h2>
                         
-                        <h3>Set Up Output Location</h3>
-                        <p>Click "Output Folder" to select where cards will be saved</p>
-
-                        <h3>Customize Card Design</h3>
+                        <h3>Basic Card Setup</h3>
                         <ol class="step-list">
-                            <li>Add school logo and coat of arms (optional)</li>
+                            <li>Go to the "Generate IDs" tab</li>
+                            <li>Set up your photo folder and output folder</li>
+                            <li>Add your school logo and coat of arms (optional)</li>
                             <li>Choose between custom template or built-in template</li>
-                            <li>Set motto and year</li>
-                            <li>Customize colors using the color picker buttons</li>
                         </ol>
 
-                        <h3>Preview and Generate</h3>
+                        <h3>Customizing Card Design</h3>
                         <ol class="step-list">
-                            <li>Click "Refresh Preview" to see how the card will look</li>
-                            <li>Make adjustments as needed</li>
+                            <li>Enter your school motto and year</li>
+                            <li>Choose your border color, details font color, and header font color</li>
+                            <li>Click "Refresh Preview" to see your changes</li>
+                        </ol>
+
+                        <h3>Setting Back Information</h3>
+                        <ol class="step-list">
+                            <li>Enter the text for the back of the ID cards in the "Back Info" field</li>
+                            <li>This text will appear on the reverse side of the cards</li>
+                        </ol>
+
+                        <h3>Generating Cards</h3>
+                        <ol class="step-list">
                             <li>Select a category from the dropdown (Grade 7, Grade 9, etc., or "All")</li>
                             <li>Click "Export to PDF" to create a multi-card PDF</li>
                             <li>Or use "Export Images Only" from the Pupils menu to create individual image files</li>
                         </ol>
 
-                        <h3>Back Side Information</h3>
+                        <h3>Back Side PDF</h3>
                         <ol class="step-list">
-                            <li>Enter text for the back of the cards in the "Back Info" field</li>
-                            <li>Click "Export Back Info to PDF" to create a separate PDF for printing on the reverse side</li>
+                            <li>Click "Export Back Info to PDF" to create a separate PDF for the back of the cards</li>
                         </ol>
                     </section>
 
                     <!-- Printing -->
                     <section id="printing" class="docs-section">
-                        <h2>Printing</h2>
+                        <h2>Printing ID Cards</h2>
                         
-                        <h3>Preview Layout</h3>
-                        <p>Click "Print Layout Preview" to see how cards will be arranged on the page</p>
+                        <h3>Checking Layout</h3>
+                        <ol class="step-list">
+                            <li>Click "Print Layout Preview" to see how cards will be arranged on the page</li>
+                        </ol>
 
-                        <h3>Print from PDF</h3>
+                        <h3>Printing from PDF</h3>
                         <ol class="step-list">
                             <li>Open the generated PDF in your preferred PDF viewer</li>
-                            <li>Print using your printer's duplex feature for double-sided cards</li>
+                            <li>Use your printer's settings to print the cards</li>
+                            <li>For double-sided printing, print the front PDF first, then the back PDF</li>
                         </ol>
                     </section>
 
@@ -544,37 +576,37 @@
                         <h3>Common Issues</h3>
                         
                         <div class="troubleshoot-item">
-                            <strong>Issue:</strong> Photos not matching with pupil data<br>
-                            <strong>Solution:</strong> Ensure photos are named exactly with the exam number. Use the Renaming Wizard to manually match photos.
+                            <strong>Issue:</strong> Photos not appearing on ID cards<br>
+                            <strong>Solution:</strong> Ensure photos are in the correct folder selected as "Photos Folder". Check that photos are named exactly with the student's exam number. Use the Renaming Wizard to manually match photos with students. Verify photos are in JPG, JPEG, or PNG format.
                         </div>
 
                         <div class="troubleshoot-item">
-                            <strong>Issue:</strong> License activation fails<br>
-                            <strong>Solution:</strong> Check your internet connection. If the problem persists, contact support with your license key.
+                            <strong>Issue:</strong> CSV import fails<br>
+                            <strong>Solution:</strong> Ensure your CSV file has the required columns: Name, School, Grade/Form, Exam Number, Sex, D O B. Check for special characters or formatting issues in your CSV. Try opening and resaving your CSV in Excel or a text editor before importing.
                         </div>
 
                         <div class="troubleshoot-item">
                             <strong>Issue:</strong> PDF export is slow or crashes<br>
-                            <strong>Solution:</strong> Reduce the number of cards by filtering to a specific grade. Try exporting in smaller batches.
+                            <strong>Solution:</strong> Reduce the number of cards by filtering to a specific grade. Ensure you have enough disk space for the output. Try exporting in smaller batches. Close other applications to free up memory.
                         </div>
 
                         <div class="troubleshoot-item">
-                            <strong>Issue:</strong> Unable to see photo preview<br>
-                            <strong>Solution:</strong> Verify that photos are in JPG, JPEG, or PNG format. Ensure the photo folder path doesn't contain special characters.
+                            <strong>Issue:</strong> Print quality issues<br>
+                            <strong>Solution:</strong> Check printer settings and select high quality. Ensure paper is appropriate for ID cards (recommended: 200-250gsm cardstock). Adjust the DPI settings in your PDF reader when printing. Use "Export Images Only" and print through a photo editor for more control.
                         </div>
 
                         <div class="troubleshoot-item">
-                            <strong>Issue:</strong> Data not saving<br>
-                            <strong>Solution:</strong> Check that you have write permissions for the application folder. Use "Save Changes" button explicitly after making changes.
+                            <strong>Issue:</strong> Application crashes on startup<br>
+                            <strong>Solution:</strong> Reinstall the application. Check for antivirus interference. Make sure your Windows is up to date. Check system requirements are met.
                         </div>
 
                         <h3>Error Recovery</h3>
-                        <p>If the application crashes:</p>
+                        <p>If the application crashes while working:</p>
                         <ol class="step-list">
                             <li>Restart IDLab</li>
-                            <li>Your data should be auto-saved</li>
-                            <li>Check the "IDLab_feedback.txt" file in your user folder for error details</li>
-                            <li>Submit feedback through Help → Submit Feedback</li>
+                            <li>Your pupil data should be auto-saved</li>
+                            <li>Use "Save Settings" from the File menu regularly to avoid losing configuration</li>
+                            <li>Check the "IDLab_feedback.txt" file in your Documents folder for error details</li>
                         </ol>
                     </section>
 
@@ -583,13 +615,13 @@
                         <h2>FAQ</h2>
                         
                         <div class="faq-item">
-                            <h4>How many pupils can I manage in IDLab?</h4>
-                            <p>IDLab can handle thousands of pupils, though for performance reasons we recommend working with 500-1000 at a time.</p>
+                            <h4>How many students can I manage in IDLab?</h4>
+                            <p>IDLab can handle thousands of students, though performance is best with 500-1000 at a time. For larger schools, consider using the grade/form filter when generating cards.</p>
                         </div>
 
                         <div class="faq-item">
-                            <h4>What photo format is recommended?</h4>
-                            <p>JPG or PNG formats work best. Photos should be passport-sized with good lighting and a neutral background.</p>
+                            <h4>What photo format works best?</h4>
+                            <p>JPG or PNG formats work well. Photos should be passport-sized (3x4cm or similar) with a neutral background. For best results, use the same dimensions for all photos.</p>
                         </div>
 
                         <div class="faq-item">
@@ -598,42 +630,38 @@
                         </div>
 
                         <div class="faq-item">
-                            <h4>Is IDLab only for Zambian schools?</h4>
-                            <p>While designed with Zambian schools in mind, IDLab can be used by any educational institution or business.</p>
+                            <h4>Does IDLab require internet connection?</h4>
+                            <p>No, IDLab works completely offline after installation. All features are available without internet connectivity.</p>
                         </div>
 
                         <div class="faq-item">
-                            <h4>How do I renew my license?</h4>
-                            <p>Go to Settings → License Management and enter your new license key.</p>
+                            <h4>Can I customize the card size?</h4>
+                            <p>The default card size is standard ID card size (85.6 × 54 mm). Custom sizes can be achieved by modifying templates.</p>
                         </div>
 
                         <div class="faq-item">
-                            <h4>Can I transfer my license to another computer?</h4>
-                            <p>Yes, licenses are tied to your account, not your computer. Log in with the same credentials on the new computer.</p>
+                            <h4>How do I create my own templates?</h4>
+                            <p>You can design background templates using any image editor (like GIMP or Photoshop) and save them as PNG files. The recommended template size is 1050 × 680 pixels.</p>
                         </div>
 
                         <div class="faq-item">
-                            <h4>What should I do if I forget my password?</h4>
-                            <p>Contact support at ngwenyamae3118@gmail.com for password recovery assistance.</p>
+                            <h4>Can I backup my data?</h4>
+                            <p>Yes, use the "Export Pupil List" feature to save your data as CSV files. Keep these files as backups.</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <h4>Is there a limit to how many profiles I can create?</h4>
+                            <p>No, you can create as many profiles as needed for different schools or businesses.</p>
                         </div>
                     </section>
 
-                    <!-- Support -->
-                    <section id="support" class="docs-section">
-                        <h2>License and Support</h2>
+                    <!-- Contact -->
+                    <section id="contact" class="docs-section">
+                        <h2>Share and Contact Information</h2>
                         
-                        <h3>License Information</h3>
-                        <p>IDLab is licensed software. Each license permits use on one computer. License terms are available in the EULA (End User License Agreement) within the application.</p>
-
-                        <h4>License Types</h4>
-                        <ul class="about-highlights">
-                            <li>30-day licenses for evaluation</li>
-                            <li>1-year licenses for continued use</li>
-                        </ul>
-
-                        <h3>Contact and Support</h3>
+                        <h3>Developer Information</h3>
                         <div class="contact-info">
-                            <h4>Developer: Emmanuel Ngwenyama</h4>
+                            <h4>Emmanuel Ngwenyama</h4>
                             <div class="contact-item">
                                 <span class="label">Email:</span>
                                 <span>ngwenyamae3118@gmail.com</span>
@@ -650,14 +678,15 @@
 
                         <h3>Getting Help</h3>
                         <ul class="about-highlights">
-                            <li>View tips: Help → View Tips</li>
-                            <li>Read user guide: Help → User Guide</li>
-                            <li>Submit feedback: Help → Submit Feedback</li>
-                            <li>Contact support: Help → Contact Support</li>
+                            <li>For help using IDLab, check the tips by clicking Help → View Tips</li>
+                            <li>Read the user guide via Help → User Guide</li>
+                            <li>Submit feedback through Help → Submit Feedback</li>
                         </ul>
 
-                        <h3>Updates</h3>
-                        <p>IDLab checks for updates automatically. When an update is available, you'll be prompted to download and install it.</p>
+                        <h3>Sharing IDLab</h3>
+                        <p>Feel free to share IDLab with other schools and businesses that might benefit from it. As a completely offline solution, it's particularly valuable for schools in areas with limited internet connectivity.</p>
+
+                        <p><strong>Thank you for choosing IDLab!</strong> We hope this tool simplifies your ID card creation process and helps you produce professional ID cards for your students or staff.</p>
                     </section>
                 </main>
             </div>
