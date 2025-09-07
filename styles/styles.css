@@ -1,3 +1,155 @@
+/* Loading Animation */
+.page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.page-loader.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.loader-logo {
+    width: 60px;
+    height: 60px;
+    animation: logoFloat 2s ease-in-out infinite;
+}
+
+.loader-spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(27, 192, 152, 0.1);
+    border-top: 3px solid #1bc098;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.loader-text {
+    font-size: 0.9rem;
+    color: #6c757d;
+    font-weight: 500;
+    animation: textPulse 1.5s ease-in-out infinite;
+}
+
+.loader-progress {
+    width: 200px;
+    height: 3px;
+    background: rgba(27, 192, 152, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+}
+
+.loader-progress-bar {
+    height: 100%;
+    background: linear-gradient(120deg, #1bc098, #18a882);
+    border-radius: 3px;
+    animation: progressFill 2s ease-in-out infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes logoFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes textPulse {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+}
+
+@keyframes progressFill {
+    0% { width: 0%; }
+    50% { width: 70%; }
+    100% { width: 100%; }
+}
+
+/* Content fade-in animation */
+body.loading {
+    overflow: hidden;
+}
+
+.fade-in-content {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in-content.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered animation for multiple elements */
+.fade-in-content:nth-child(1) { transition-delay: 0.1s; }
+.fade-in-content:nth-child(2) { transition-delay: 0.2s; }
+.fade-in-content:nth-child(3) { transition-delay: 0.3s; }
+.fade-in-content:nth-child(4) { transition-delay: 0.4s; }
+.fade-in-content:nth-child(5) { transition-delay: 0.5s; }
+.fade-in-content:nth-child(6) { transition-delay: 0.6s; }
+
+/* Legal pages styling */
+.legal-section {
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.legal-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.legal-section h2 {
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary-light);
+}
+
+.legal-section h3 {
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.legal-section p {
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.legal-section .about-highlights {
+    margin-top: 1rem;
+}
+
+.legal-section .contact-info {
+    margin-top: 1.5rem;
+}
+
 /* Team Section (About Page) */
 .team-section {
     padding: 48px 0 32px 0;
@@ -679,7 +831,11 @@ svg.icon-desktop rect:first-child, svg.icon-android rect:first-child { fill:var(
 
 .footer-logo .logo {
     height: 40px;
-    filter: brightness(0) invert(1);
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.footer-logo .logo:hover {
     opacity: 1;
 }
 

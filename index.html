@@ -8,9 +8,21 @@
     <link rel="icon" type="image/x-icon" href="assets/idlab.ico">
 </head>
 <body>
+    <!-- Loading Animation -->
+    <div class="page-loader">
+        <div class="loader-content">
+            <img src="assets/idlab.ico" alt="IDLab Logo" class="loader-logo">
+            <div class="loader-spinner"></div>
+            <div class="loader-text">Loading IDLab...</div>
+            <div class="loader-progress">
+                <div class="loader-progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
     <script src="scripts/main.js" defer></script>
     <!-- Navigation -->
-    <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <nav class="navbar fade-in-content" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
             <a href="index.html" class="nav-logo" aria-label="IDLab Home">
                 <img src="assets/idlab.ico" alt="IDLab Logo" class="logo" loading="lazy">
@@ -26,6 +38,7 @@
                     <li><a href="#software">Features</a></li>
                     <li><a href="free-templates.html">Free Templates</a></li>
                     <li><a href="paid-templates.html">Premium</a></li>
+                    <li><a href="documentation.html">Documentation</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 <div class="nav-cta">
@@ -36,7 +49,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero hero-smart">
+    <section id="home" class="hero hero-smart fade-in-content">
         <div class="container">
             <div class="hero-inner">
                 <div class="hero-text">
@@ -64,7 +77,7 @@
     </section>
 
     <!-- About Section (Summary) -->
-        <section id="about" class="section about-intro">
+        <section id="about" class="section about-intro fade-in-content">
             <div class="container">
                 <h2>What is IDLab?</h2>
                 <div class="about-content">
@@ -80,7 +93,7 @@
         </section>
 
     <!-- Software Section -->
-    <section id="software" class="section alt-bg">
+    <section id="software" class="section alt-bg fade-in-content">
         <div class="container">
             <h2>Core Features</h2>
             <div class="features-grid">
@@ -113,7 +126,7 @@
     </section>
 
     <!-- Tutorials Section -->
-    <section id="tutorials" class="section">
+    <section id="tutorials" class="section fade-in-content">
         <div class="container">
             <h2>Tutorials</h2>
             <div class="tutorial-video-container">
@@ -135,7 +148,7 @@
     </section>
 
     <!-- Templates Section -->
-        <section id="templates" class="section">
+        <section id="templates" class="section fade-in-content">
             <div class="container">
                 <h2>Templates</h2>
                 <div class="templates-grid">
@@ -240,7 +253,9 @@
                     <a href="download.html">Download</a>
                     <a href="free-templates.html">Free Templates</a>
                     <a href="paid-templates.html">Premium</a>
-                    <a href="#contact">Contact</a>
+                    <a href="documentation.html">Documentation</a>
+                    <a href="terms.html">Terms</a>
+                    <a href="privacy.html">Privacy</a>
                 </div>
                 <div class="footer-social">
                     <a href="https://facebook.com/IDLabZambia" target="_blank" rel="noopener" class="social-link">Facebook</a>

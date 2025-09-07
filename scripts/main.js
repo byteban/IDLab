@@ -1,5 +1,44 @@
+// Loading animation
+window.addEventListener('load', () => {
+    const loader = document.querySelector('.page-loader');
+    const body = document.body;
+    
+    if (loader) {
+        // Add a small delay to ensure smooth transition
+        setTimeout(() => {
+            loader.classList.add('fade-out');
+            body.classList.remove('loading');
+            
+            // Remove loader from DOM after animation
+            setTimeout(() => {
+                loader.remove();
+            }, 500);
+            
+            // Trigger content animations
+            animateContent();
+        }, 800);
+    } else {
+        // If no loader, just animate content
+        body.classList.remove('loading');
+        animateContent();
+    }
+});
+
+// Content animation function
+function animateContent() {
+    const elements = document.querySelectorAll('.fade-in-content');
+    elements.forEach((element, index) => {
+        setTimeout(() => {
+            element.classList.add('visible');
+        }, index * 100);
+    });
+}
+
 // Mobile menu functionality
 document.addEventListener('DOMContentLoaded', () => {
+    // Add loading class to body initially
+    document.body.classList.add('loading');
+    
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navWrapper = document.querySelector('.nav-wrapper');
     const navbar = document.querySelector('.navbar');
