@@ -616,6 +616,63 @@ body:has(.template-hero) .section h2 {
     line-height: 1.6;
 }
 
+/* Template Video Section */
+.template-video-container {
+    background: #f8fffe;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 3rem 2rem;
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.template-video-container h3 {
+    color: var(--text-dark);
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 1.5rem;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.video-description {
+    color: var(--text-light);
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .template-video-container {
+        padding: 2rem 1.5rem;
+        margin: 2rem 0;
+    }
+    
+    .template-video-container h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
 /* Request Info Section */
 .request-info {
     max-width: 900px;
