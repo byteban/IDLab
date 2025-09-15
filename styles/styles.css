@@ -2356,45 +2356,29 @@ iconify-icon {
     }
 }
 
-/* Mobile Sidebar Navigation */
+/* Clean Mobile Navigation */
 @media (max-width: 768px) {
-    .mobile-menu-btn { display: flex; z-index: 1001; }
-    
-    /* Overlay */
-    .nav-wrapper::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.5);
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-        z-index: 999;
+    .mobile-menu-btn { 
+        display: flex; 
+        z-index: 1002;
+        position: relative;
     }
     
-    .nav-wrapper.active::before {
-        opacity: 1;
-        visibility: visible;
-    }
-    
-    /* Sidebar */
+    /* Mobile Navigation Wrapper */
     .nav-wrapper {
         position: fixed;
         top: 0;
-        right: -320px;
-        width: 320px;
+        right: -100%;
+        width: 280px;
         height: 100vh;
         background: #fff;
         flex-direction: column;
         justify-content: flex-start;
         align-items: stretch;
         padding: 0;
-        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
-        transition: right 0.3s ease;
-        z-index: 1000;
+        box-shadow: -2px 0 20px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1001;
         overflow-y: auto;
     }
     
@@ -2402,25 +2386,27 @@ iconify-icon {
         right: 0;
     }
     
-    /* Sidebar Header */
-    .nav-wrapper::after {
+    /* Mobile Navigation Header */
+    .nav-wrapper::before {
         content: '';
         display: block;
         height: 80px;
         background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-        margin-bottom: 2rem;
+        position: relative;
     }
     
-    /* Menu Items */
+    /* Navigation Menu */
     .nav-menu {
         flex-direction: column;
         gap: 0;
-        padding: 0 1.5rem;
-        margin-bottom: 2rem;
+        padding: 2rem 0 1rem;
+        margin: 0;
+        list-style: none;
     }
     
     .nav-menu li {
-        border-bottom: 1px solid #f0f0f0;
+        margin: 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     }
     
     .nav-menu li:last-child {
@@ -2429,13 +2415,14 @@ iconify-icon {
     
     .nav-menu a {
         display: block;
-        padding: 1rem 0;
+        padding: 1.2rem 1.5rem;
         color: var(--text-dark);
         font-weight: 500;
         font-size: 1rem;
         text-decoration: none;
-        transition: all 0.3s ease;
+        transition: all 0.2s ease;
         position: relative;
+        border-left: 3px solid transparent;
     }
     
     .nav-menu a::after {
@@ -2444,19 +2431,20 @@ iconify-icon {
     
     .nav-menu a:hover {
         color: var(--primary-color);
-        background: rgba(27, 192, 152, 0.05);
-        padding-left: 1rem;
+        background: rgba(27, 192, 152, 0.08);
+        border-left-color: var(--primary-color);
     }
     
     .nav-menu a.active {
-        background: rgba(27, 192, 152, 0.1);
+        background: rgba(27, 192, 152, 0.12);
         color: var(--primary-color);
         font-weight: 600;
+        border-left-color: var(--primary-color);
     }
     
     /* CTA Button */
     .nav-cta {
-        padding: 0 1.5rem 2rem;
+        padding: 1.5rem;
         margin-top: auto;
     }
     
@@ -2464,15 +2452,37 @@ iconify-icon {
         width: 100%;
         text-align: center;
         display: block;
-        padding: 1rem;
-        border-radius: 12px;
+        padding: 1rem 1.5rem;
+        border-radius: 10px;
         font-size: 1rem;
         font-weight: 600;
+        box-shadow: 0 4px 12px rgba(27, 192, 152, 0.25);
+    }
+    
+    /* Backdrop for mobile menu */
+    .nav-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 1000;
+    }
+    
+    .nav-backdrop.active {
+        opacity: 1;
+        visibility: visible;
     }
     
     /* Body scroll lock when menu is open */
     body.menu-open {
         overflow: hidden;
+        position: fixed;
+        width: 100%;
     }
     .hero h1, .about-hero h1, .template-hero h1 { font-size:2.3rem; }
     .founder-card { flex-direction:column; text-align:center; }
