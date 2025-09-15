@@ -51,6 +51,14 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.appendChild(navBackdrop);
     }
 
+    function setAria(state) {
+        if (navWrapper) navWrapper.setAttribute('aria-hidden', state ? 'false' : 'true');
+        if (navBackdrop) navBackdrop.setAttribute('aria-hidden', state ? 'false' : 'true');
+    }
+
+    // Initialize aria-hidden
+    setAria(false);
+
     function closeMenu() {
         if (mobileMenuBtn) {
             mobileMenuBtn.classList.remove('active');
@@ -59,6 +67,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (navWrapper) navWrapper.classList.remove('active');
         if (navBackdrop) navBackdrop.classList.remove('active');
         document.body.classList.remove('menu-open');
+        setAria(false);
+        // Restore scroll position safety
     }
 
     function openMenu() {
@@ -69,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (navWrapper) navWrapper.classList.add('active');
         if (navBackdrop) navBackdrop.classList.add('active');
         document.body.classList.add('menu-open');
+        setAria(true);
     }
 
     if (mobileMenuBtn) {
@@ -87,6 +98,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (navBackdrop) {
         navBackdrop.addEventListener('click', closeMenu);
     }
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && document.body.classList.contains('menu-open')) {
+            closeMenu();
+        }
+    });
 
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {

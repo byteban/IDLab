@@ -2469,20 +2469,23 @@ iconify-icon {
         background: rgba(0, 0, 0, 0.3);
         opacity: 0;
         visibility: hidden;
-        transition: all 0.3s ease;
-        z-index: 1000;
+        transition: opacity 0.25s ease, visibility 0.25s ease;
+        z-index: 900; /* below sidebar (1001) but above content */
+        pointer-events: none; /* don't intercept clicks when hidden */
     }
     
     .nav-backdrop.active {
         opacity: 1;
         visibility: visible;
+        pointer-events: auto; /* clickable only when active */
     }
     
     /* Body scroll lock when menu is open */
     body.menu-open {
-        overflow: hidden;
-        position: fixed;
+        overflow: hidden; /* prevent background scroll */
+        position: relative; /* avoid layout jump from fixed */
         width: 100%;
+        touch-action: none; /* prevent iOS scroll bounce */
     }
     .hero h1, .about-hero h1, .template-hero h1 { font-size:2.3rem; }
     .founder-card { flex-direction:column; text-align:center; }
