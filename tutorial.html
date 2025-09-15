@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorials - IDLab</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="icon" type="image/x-icon" href="assets/idlab.ico">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.js"></script>
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="page-loader">
+        <div class="loader-content">
+            <img src="assets/idlab.ico" alt="IDLab Logo" class="loader-logo">
+            <div class="loader-spinner"></div>
+            <div class="loader-text">Loading Tutorials...</div>
+            <div class="loader-progress">
+                <div class="loader-progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar fade-in-content" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo" aria-label="IDLab Home">
+                <img src="assets/idlab.ico" alt="IDLab Logo" class="logo" />
+            </a>
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="tutorial-menu">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-wrapper" id="tutorial-menu">
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="download.html">Download</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="tutorial.html" class="active">Tutorials</a></li>
+                    <li><a href="index.html#templates">Templates</a></li>
+                    <li><a href="documentation.html">Documentation</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+                <div class="nav-cta">
+                    <a class="nav-download-btn" href="download.html">Get IDLab</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tutorial Hero Section -->
+    <section class="about-hero fade-in-content">
+        <div class="container">
+            <h1>IDLab Tutorials</h1>
+            <p class="lead">Complete step-by-step guides for both desktop and mobile ID card creation</p>
+        </div>
+    </section>
+
+    <!-- Tutorial Navigation -->
+    <section class="section fade-in-content">
+        <div class="container">
+            <div class="tutorial-nav-grid">
+                <div class="tutorial-nav-item">
+                    <iconify-icon icon="material-symbols:computer-outline"></iconify-icon>
+                    <h3>Desktop Application</h3>
+                    <p>Complete ID card creation workflow from data entry to printing</p>
+                    <a href="#desktop-tutorial" class="nav-link">View Desktop Tutorial</a>
+                </div>
+                <div class="tutorial-nav-item">
+                    <iconify-icon icon="material-symbols:smartphone-outline"></iconify-icon>
+                    <h3>Android Mobile App</h3>
+                    <p>Capture student photos on-the-go with our companion mobile app</p>
+                    <a href="#mobile-tutorial" class="nav-link">View Mobile Tutorial</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Desktop Tutorial Section -->
+    <section id="desktop-tutorial" class="section fade-in-content">
+        <div class="container">
+            <h2>
+                <iconify-icon icon="material-symbols:computer-outline" style="margin-right: 0.5rem; color: var(--primary-color);"></iconify-icon>
+                Desktop Application Tutorial
+            </h2>
+            <p class="section-subtitle">Master the complete ID card creation workflow using IDLab desktop application</p>
+            
+            <div class="tutorial-video-container">
+                <div class="video-wrapper">
+                    <iframe 
+                        src="https://www.youtube.com/embed/_NzS9kbN21Y?si=GuxVtH-s7HScGPGI" 
+                        title="IDLab Desktop Tutorial - Complete Guide" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-description">
+                    <h3>Complete Desktop Tutorial</h3>
+                    <p>Watch this comprehensive tutorial covering all three main sections of IDLab: Student Data Entry, Photo Management, and ID Card Generation.</p>
+                    <p><strong>What you'll learn:</strong> Data import, photo organization, template customization, and batch ID card generation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Desktop Quick Start Guide -->
+    <section class="section alt-bg fade-in-content">
+        <div class="container">
+            <h2>Desktop Quick Start Guide</h2>
+            <p class="section-subtitle">Follow this step-by-step workflow to create your first batch of ID cards</p>
+            
+            <div class="tutorial-steps">
+                <div class="step-item">
+                    <div class="step-number">
+                        <iconify-icon icon="material-symbols:download-outline"></iconify-icon>
+                    </div>
+                    <div class="step-content">
+                        <h3>Download & Install Desktop App</h3>
+                        <p>Download IDLab for Windows from our download page. Install and launch the application to begin setting up your school profile.</p>
+                        <div class="step-tips">
+                            <strong>💡 Tip:</strong> Make sure you have administrator privileges for installation.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-number">
+                        <iconify-icon icon="material-symbols:database-outline"></iconify-icon>
+                    </div>
+                    <div class="step-content">
+                        <h3>Prepare Student Data (Tab 1)</h3>
+                        <p>Go to the "Pupil Data Entry" tab. Import your student list via CSV file or add students manually. Include names, exam numbers, grades, and other required information.</p>
+                        <div class="step-tips">
+                            <strong>💡 Tip:</strong> CSV format: Name, ExamNumber, Grade, Class, etc. Use our template for best results.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-number">
+                        <iconify-icon icon="material-symbols:photo-camera-outline"></iconify-icon>
+                    </div>
+                    <div class="step-content">
+                        <h3>Organize Student Photos (Tab 2)</h3>
+                        <p>Switch to "ID Photo Tools" tab. Upload student photos and use the Renaming Wizard to match photos with exam numbers automatically.</p>
+                        <div class="step-tips">
+                            <strong>💡 Tip:</strong> Photos should be named with exam numbers (e.g., 2024001.jpg) for auto-matching.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-number">
+                        <iconify-icon icon="material-symbols:design-services-outline"></iconify-icon>
+                    </div>
+                    <div class="step-content">
+                        <h3>Design Your ID Cards (Tab 3)</h3>
+                        <p>Navigate to "Generate IDs" tab. Select a template, customize with your school logo, colors, and branding. Preview how your cards will look.</p>
+                        <div class="step-tips">
+                            <strong>💡 Tip:</strong> Upload high-resolution logos (PNG format) for best print quality.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-number">
+                        <iconify-icon icon="material-symbols:print-outline"></iconify-icon>
+                    </div>
+                    <div class="step-content">
+                        <h3>Generate & Export Cards</h3>
+                        <p>Select students to include, choose export format (PDF or individual images), and generate your ID cards. Save the output for printing.</p>
+                        <div class="step-tips">
+                            <strong>💡 Tip:</strong> Export as PDF for professional printing, or individual images for digital use.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Android App Tutorial Section -->
+    <section id="mobile-tutorial" class="section fade-in-content">
+        <div class="container">
+            <h2>
+                <iconify-icon icon="material-symbols:smartphone" style="margin-right: 0.5rem; color: var(--primary-color);"></iconify-icon>
+                Android Mobile App Tutorial
+            </h2>
+            <p class="section-subtitle">Capture professional student photos directly on your mobile device. Perfect for schools wanting to take photos on-site and sync with the desktop application.</p>
+            
+            <!-- App Preview -->
+            <div class="tutorial-video-container">
+                <div class="video-wrapper">
+                    <img src="assets/phototakingscreen.png" alt="IDLab Android App Photo Capture Screen" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+                </div>
+                <div class="video-description">
+                    <h3>Mobile Photo Capture</h3>
+                    <p>IDLab makes it simple to create pupil ID photos. You can import a list of pupils, take or attach ID photos, and save them directly to your phone.</p>
+                    <p>To get started, you'll first need to export a pupil list from the IDLab desktop app after entering the pupil data.</p>
+                </div>
+            </div>
+
+            <!-- Prerequisites -->
+            <div class="tutorial-steps">
+                <h3>Prerequisites - Prepare Your Data</h3>
+                
+                <div class="step-item">
+                    <div class="step-number">
+                        <iconify-icon icon="material-symbols:computer-outline"></iconify-icon>
+                    </div>
+                    <div class="step-content">
+                        <h3>Complete Desktop Setup First</h3>
+                        <p>Before using the mobile app, ensure you have your student data entered in the IDLab desktop application. This includes student names, exam numbers, and other details.</p>
+                        <div class="step-tips">
+                            <strong>⚠️ Important:</strong> The mobile app works alongside the desktop app, not as a standalone solution.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">
+                        <iconify-icon icon="material-symbols:file-export-outline"></iconify-icon>
+                    </div>
+                    <div class="step-content">
+                        <h3>Export Student List from Desktop</h3>
+                        <p>In IDLab desktop app, go to "Pupil Data Entry" tab and export your student list as a CSV file. Use a clear filename like "Grade12_2025.csv" and save it to an easily accessible location.</p>
+                        <div class="step-tips">
+                            <strong>💡 Tip:</strong> Save to Desktop or Documents folder for easy access during transfer.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">
+                        <iconify-icon icon="material-symbols:smartphone-outline"></iconify-icon>
+                    </div>
+                    <div class="step-content">
+                        <h3>Install App & Transfer Data</h3>
+                        <p>Download IDLab Android app from our website. Transfer the CSV file to your phone using Bluetooth, USB cable, or cloud storage. Grant camera and storage permissions when prompted.</p>
+                        <div class="step-tips">
+                            <strong>💡 Tip:</strong> USB transfer is fastest for large student lists.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile App Workflow -->
+            <div class="tutorial-steps">
+                <h3>Mobile Photo Capture Workflow</h3>
+                
+                <div class="step-item">
+                    <div class="step-number">
+                        <iconify-icon icon="material-symbols:upload-outline"></iconify-icon>
+                    </div>
+                    <div class="step-content">
+                        <h3>1. Import Student List</h3>
+                        <p>Launch IDLab Android app and tap the Upload icon (📤) in the top right corner. Browse and select your CSV file containing student names and exam numbers.</p>
+                        <div class="step-tips">
+                            <strong>✅ Success:</strong> You'll see a confirmation message and student count after successful import.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">
+                        <iconify-icon icon="material-symbols:search-outline"></iconify-icon>
+                    </div>
+                    <div class="step-content">
+                        <h3>2. Find Students Quickly</h3>
+                        <p>Use the search bar to find students by name or exam number. You can also filter by grade/class using the dropdown menu, or sort alphabetically for easy navigation.</p>
+                        <div class="step-tips">
+                            <strong>💡 Tip:</strong> Search is instant - start typing and results appear immediately.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">
+                        <iconify-icon icon="material-symbols:photo-camera-outline"></iconify-icon>
+                    </div>
+                    <div class="step-content">
+                        <h3>3. Capture Student Photos</h3>
+                        <p>Tap on a student's name to open the camera. Position the student properly, ensure good lighting, and tap the capture button. Review and confirm the photo or retake if needed.</p>
+                        <div class="step-tips">
+                            <strong>🎯 Best Practice:</strong> Use consistent background and lighting for all photos.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">
+                        <iconify-icon icon="material-symbols:photo-library-outline"></iconify-icon>
+                    </div>
+                    <div class="step-content">
+                        <h3>4. Review & Manage Photos</h3>
+                        <p>Switch to the Gallery tab to view all captured photos. Photos are automatically named with exam numbers (e.g., 2024001.jpg). You can retake, delete, or export individual photos or entire batches.</p>
+                        <div class="step-tips">
+                            <strong>📊 Progress:</strong> Check the progress indicator to see how many students still need photos.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">
+                        <iconify-icon icon="material-symbols:sync-outline"></iconify-icon>
+                    </div>
+                    <div class="step-content">
+                        <h3>5. Transfer Back to Desktop</h3>
+                        <p>Export photos from the Gallery and transfer them back to your computer. Place the photos in the same folder you use for the desktop app's photo import.</p>
+                        <div class="step-tips">
+                            <strong>🔄 Workflow:</strong> Photos are now ready for the desktop app's "ID Photo Tools" tab.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Export Location Info -->
+            <div class="tutorial-steps">
+                <div class="step-item">
+                    <div class="step-number">
+                        <iconify-icon icon="material-symbols:folder-outline"></iconify-icon>
+                    </div>
+                    <div class="step-content">
+                        <h3>Find Your Exported Photos</h3>
+                        <p>Once exported, you can find the photos on your phone at: <strong>Internal Storage → Pictures</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Download CTA -->
+            <div class="gallery-cta" style="margin-top: 3rem;">
+                <a href="download.html" class="primary-btn">
+                    <iconify-icon icon="material-symbols:download-outline" style="margin-right: 0.5rem;"></iconify-icon>
+                    Download Android App
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Resources -->
+    <section class="section alt-bg fade-in-content">
+        <div class="container">
+            <h2>Additional Resources</h2>
+            <div class="resources-grid">
+                <div class="resource-item">
+                    <iconify-icon icon="material-symbols:description-outline"></iconify-icon>
+                    <h3>Documentation</h3>
+                    <p>Comprehensive documentation covering all features and advanced usage scenarios.</p>
+                    <a href="documentation.html" class="resource-link">Read Documentation</a>
+                </div>
+                <div class="resource-item">
+                    <iconify-icon icon="material-symbols:download-outline"></iconify-icon>
+                    <h3>Download IDLab</h3>
+                    <p>Get the latest version of IDLab for Windows, Android, or iOS platforms.</p>
+                    <a href="download.html" class="resource-link">Download Now</a>
+                </div>
+                <div class="resource-item">
+                    <iconify-icon icon="material-symbols:support-agent-outline"></iconify-icon>
+                    <h3>Get Support</h3>
+                    <p>Need help? Contact our support team or join our community channels.</p>
+                    <a href="index.html#contact" class="resource-link">Contact Support</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/idlab.ico" alt="IDLab Logo" class="logo" />
+                </div>
+                <div class="footer-links">
+                    <a href="about.html">About</a>
+                    <a href="download.html">Download</a>
+                    <a href="features.html">Features</a>
+                    <a href="tutorial.html">Tutorials</a>
+                    <a href="index.html#templates">Templates</a>
+                    <a href="documentation.html">Documentation</a>
+                    <a href="terms.html">Terms</a>
+                    <a href="privacy.html">Privacy</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://facebook.com/IDLabZambia" target="_blank" rel="noopener" class="social-link">Facebook</a>
+                    <a href="https://wa.me/260980611865?text=Hello%20IDLab%2C%20I%20would%20like%20to%20request%20a%20license%20key." target="_blank" rel="noopener" class="social-link">WhatsApp</a>
+                    <a href="https://t.me/+QNH3A6V6_oo4ZmRk" target="_blank" rel="noopener" class="social-link">Telegram</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 IDLab. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js" defer></script>
+</body>
+</html>

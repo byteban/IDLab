@@ -36,13 +36,15 @@
                 <ul class="nav-menu">
                     <li><a href="index.html" class="active">Home</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="#software">Features</a></li>
+                    <li><a href="download.html">Download</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="tutorial.html">Tutorials</a></li>
                     <li><a href="#templates">Templates</a></li>
                     <li><a href="documentation.html">Documentation</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 <div class="nav-cta">
-                    <a href="download.html" class="nav-download-btn" aria-label="Download IDLab">Download</a>
+                    <a href="download.html" class="nav-download-btn" aria-label="Download IDLab">Get IDLab</a>
                 </div>
             </div>
         </div>
@@ -53,63 +55,102 @@
         <div class="container">
             <div class="hero-inner">
                 <div class="hero-text">
-                    <h1 class="hero-heading"><span class="hero-accent">Create Student</span> ID Cards Effortlessly</h1>
+                    <h1 class="hero-heading"><span class="hero-accent">Create Candidates</span> ID Cards Effortlessly</h1>
                     <p class="hero-lead">Purpose-built for schools and educational institutions. Import student data, match photos automatically, and generate professional ID cards in bulk with IDLab.</p>
                     <div class="hero-actions">
                         <a href="download.html" class="cta-button primary" aria-label="Download IDLab now">Download Free</a>
                         <a href="#software" class="outline-btn light" aria-label="View core features">See Features</a>
                     </div>
                     <ul class="hero-stats" aria-label="Product quick stats">
-                        <li><strong>500+</strong><span>Students / batch</span></li>
+                        <li><strong>500+</strong><span>Candidates / batch</span></li>
                         <li><strong>Smart</strong><span>Photo matching</span></li>
                         <li><strong>Local</strong><span>Data security</span></li>
                     </ul>
                 </div>
                 <div class="hero-visual" aria-hidden="true">
-                    <div class="hero-preview">
-                        <div class="card-mock tilt delay1"></div>
-                        <div class="card-mock alt tilt delay2"></div>
-                        <div class="card-mock mini tilt delay3"></div>
-                    </div>
+                    <img src="assets/idlabcard.png" alt="IDLab ID Card Mockup" class="hero-mockup" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Screenshots Gallery Section -->
-    <section id="screenshots" class="section screenshots-gallery fade-in-content">
+    <!-- IDLab in Action Header -->
+    <section id="screenshots-header" class="section screenshots-gallery fade-in-content">
         <div class="container">
             <h2>See IDLab in Action</h2>
             <p class="section-subtitle">Experience the intuitive interface and powerful features that make ID card creation effortless</p>
-            <div class="screenshots-grid">
-                <div class="screenshot-item fade-in-content">
-                    <div class="screenshot-frame">
-                        <img src="assets/Screenshot1.png" alt="IDLab Main Interface - Dashboard and project overview" loading="lazy">
-                    </div>
-                    <div class="screenshot-info">
-                        <h3>Intuitive Dashboard</h3>
-                        <p>Clean, organized workspace with easy access to all your projects and templates</p>
-                    </div>
+        </div>
+    </section>
+
+    <!-- Tab 1: Student Data Management - Image Right, Text Left -->
+    <section id="tab1-showcase" class="section feature-showcase fade-in-content">
+        <div class="container">
+            <div class="feature-showcase-inner">
+                <div class="feature-text">
+                    <div class="feature-badge">Tab 1</div>
+                    <h3>Generate IDs</h3>
+                    <p>Design and produce printable ID cards from your pupil data and branding assets. Choose photos, output folders, and customize with your logo, coat of arms, motto, and year. Use the preview to confirm layout and colors before exporting as images or PDF.</p>
+                    <ul class="feature-highlights">
+                        <li>Choose photos/output folders and branding assets</li>
+                        <li>Live preview with layout and color confirmation</li>
+                        <li>Select categories (grade/form) for targeted export</li>
+                        <li>Export as high-quality images or PDF format</li>
+                    </ul>
                 </div>
-                <div class="screenshot-item fade-in-content">
-                    <div class="screenshot-frame">
-                        <img src="assets/screenshot2.png" alt="IDLab Template Designer - Customizing ID card layouts" loading="lazy">
-                    </div>
-                    <div class="screenshot-info">
-                        <h3>Template Designer</h3>
-                        <p>Drag-and-drop design tools with real-time preview and professional layouts</p>
-                    </div>
-                </div>
-                <div class="screenshot-item fade-in-content">
-                    <div class="screenshot-frame">
-                        <img src="assets/screenshot3.png" alt="IDLab Data Import - Bulk import from CSV and Excel files" loading="lazy">
-                    </div>
-                    <div class="screenshot-info">
-                        <h3>Data Import</h3>
-                        <p>Seamlessly import data from CSV, Excel files or enter information manually</p>
-                    </div>
+                <div class="feature-image">
+                    <img src="assets/tab1.png" alt="IDLab Generate IDs Tab - Design and produce printable ID cards" loading="lazy">
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Tab 2: Photo Management - Image Left, Text Right -->
+    <section id="tab2-showcase" class="section feature-showcase alt-bg fade-in-content">
+        <div class="container">
+            <div class="feature-showcase-inner reverse">
+                <div class="feature-image">
+                    <img src="assets/tab2.png" alt="IDLab Pupil Data Entry Tab - Create, import and manage student records" loading="lazy">
+                </div>
+                <div class="feature-text">
+                    <div class="feature-badge">Tab 2</div>
+                    <h3>Pupil Data Entry</h3>
+                    <p>Create, import, edit and maintain the canonical pupil dataset used to populate ID cards. Import CSV files or add pupils manually, then use search, filters and pagination to manage records efficiently with inline editing capabilities.</p>
+                    <ul class="feature-highlights">
+                        <li>Import CSV files or add pupils manually</li>
+                        <li>Search, filter and pagination for easy navigation</li>
+                        <li>Inline editing with Add Pupil dialog support</li>
+                        <li>Undo/redo functionality for batch edits</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tab 3: ID Card Generation - Image Right, Text Left -->
+    <section id="tab3-showcase" class="section feature-showcase fade-in-content">
+        <div class="container">
+            <div class="feature-showcase-inner">
+                <div class="feature-text">
+                    <div class="feature-badge">Tab 3</div>
+                    <h3>ID Photo Tools</h3>
+                    <p>Review, match and manage candidate photos so each pupil has the correct image before generating cards. Use the Renaming Wizard to browse gallery thumbnails, assign photos to pupils, and manage matched vs missing photos with export capabilities.</p>
+                    <ul class="feature-highlights">
+                        <li>Point app to photos folder for automatic detection</li>
+                        <li>Renaming Wizard with gallery thumbnail browsing</li>
+                        <li>Visual photo-to-pupil assignment with auto-renaming</li>
+                        <li>Management view for matched vs missing photo tracking</li>
+                    </ul>
+                </div>
+                <div class="feature-image">
+                    <img src="assets/tab3.png" alt="IDLab ID Photo Tools Tab - Review, match and manage student photos" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section id="screenshots-cta" class="section alt-bg fade-in-content">
+        <div class="container">
             <div class="gallery-cta">
                 <a href="download.html" class="primary-btn">Try IDLab Free</a>
                 <a href="documentation.html" class="outline-btn">View Documentation</a>
@@ -136,67 +177,6 @@
             </div>
         </section>
 
-    <!-- Software Section -->
-    <section id="software" class="section alt-bg fade-in-content">
-        <div class="container">
-            <h2>Core Features</h2>
-            <div class="features-grid">
-                <div class="feature feature-accent">
-                    <iconify-icon icon="material-symbols:database"></iconify-icon>
-                    <h3>Data Management</h3>
-                    <p>Create, import, and manage student records with CSV import/export. Search and filter by name, exam number, or grade level with category-based organization.</p>
-                </div>
-                <div class="feature feature-accent">
-                    <iconify-icon icon="material-symbols:photo-camera"></iconify-icon>
-                    <h3>Photo Management</h3>
-                    <p>Smart photo matching system with renaming wizard. Track photo status and handle bulk uploads efficiently for large student databases.</p>
-                </div>
-                <div class="feature feature-accent">
-                    <iconify-icon icon="material-symbols:design-services"></iconify-icon>
-                    <h3>ID Card Design</h3>
-                    <p>Customizable templates with school branding options. Add logos, coat of arms, custom colors, school motto, and design both front and back sides.</p>
-                </div>
-                <div class="feature feature-accent">
-                    <iconify-icon icon="material-symbols:description"></iconify-icon>
-                    <h3>Output Options</h3>
-                    <p>Generate high-quality PDFs for multiple cards, export individual images, preview print layouts, and create separate back-side PDFs.</p>
-                </div>
-                <div class="feature feature-accent">
-                    <iconify-icon icon="material-symbols:flash-on"></iconify-icon>
-                    <h3>Batch Processing</h3>
-                    <p>Generate hundreds of cards at once with consistent quality. Perfect for schools processing entire grades or large organizations.</p>
-                </div>
-                <div class="feature feature-accent">
-                    <iconify-icon icon="material-symbols:lock"></iconify-icon>
-                    <h3>Local-First Security</h3>
-                    <p>All data processed locally on your computer. No student information sent to external servers, ensuring privacy and compliance.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tutorials Section -->
-    <section id="tutorials" class="section fade-in-content">
-        <div class="container">
-            <h2>Tutorials</h2>
-            <div class="tutorial-video-container">
-                <div class="video-wrapper">
-                    <iframe 
-                        src="https://www.youtube.com/embed/_NzS9kbN21Y?si=GuxVtH-s7HScGPGI" 
-                        title="IDLab Tutorial - Getting Started" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        allowfullscreen>
-                    </iframe>
-                </div>
-                <div class="video-description">
-                    <h3>Complete IDLab Tutorial</h3>
-                    <p>Watch this comprehensive tutorial to learn how to use IDLab for creating professional ID cards. This video covers everything from getting started to advanced features.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Templates Section -->
         <section id="templates" class="section fade-in-content">
             <div class="container">
@@ -210,7 +190,7 @@
                         <iframe 
                             width="560" 
                             height="315" 
-                            src="https://youtu.be/JGzC0ZnlZ9c" 
+                            src="https://www.youtube.com/embed/JGzC0ZnlZ9c" 
                             title="IDLab Template Tutorial" 
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -220,7 +200,7 @@
                     </div>
                     <p class="video-description">Learn how to download, upload, and customize these ECZ templates for your examination candidates' ID cards.</p>
                 </div>
-                
+                <!-- Templates Grid Each card should have a preview for the template png-->
                 <div class="templates-grid">
                     <div class="template-card">
                         <div class="template-preview">
@@ -252,7 +232,7 @@
                         </div>
                         <div class="template-info">
                             <h3>Grade 9 ECZ Template</h3>
-                            <a href="#" class="template-cta" download>Download Template</a>
+                            <a href="assets/Screenshot1.png" class="template-cta" download>Download Template</a>
                         </div>
                     </div>
 
