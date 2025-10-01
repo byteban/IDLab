@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDLab Pricing - Affordable ID Card Software for Schools & Businesses</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="icon" type="image/x-icon" href="assets/idlab.ico">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.js"></script>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="page-loader">
+        <div class="loader-content">
+            <img src="assets/idlab.ico" alt="IDLab Logo" class="loader-logo">
+            <div class="loader-spinner"></div>
+            <div class="loader-text">Loading IDLab...</div>
+            <div class="loader-progress">
+                <div class="loader-progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar fade-in-content" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo" aria-label="IDLab Home">
+                <img src="assets/idlab.ico" alt="IDLab Logo" class="logo" loading="lazy">
+            </a>
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-menu">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-wrapper" id="primary-menu">
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="download.html">Download</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="tutorial.html">Tutorials</a></li>
+                    <li><a href="pricing.html" class="active">Pricing</a></li>
+                    <li><a href="documentation.html">Documentation</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="nav-cta">
+                    <a href="download.html" class="nav-download-btn" aria-label="Download IDLab">Get IDLab</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Pricing Hero Section -->
+    <section id="pricing-hero" class="hero pricing-hero fade-in-content">
+        <div class="container">
+            <div class="hero-inner">
+                <div class="hero-text">
+                    <h1 class="hero-heading">IDLab <span class="hero-accent">Pricing</span></h1>
+                    <p class="hero-lead">Affordable licensing for schools and businesses in Zambia. Choose the plan that fits your needs and budget.</p>
+                    <div class="pricing-highlight">
+                        <iconify-icon icon="material-symbols:check-circle"></iconify-icon>
+                        <span>All prices in Zambian Kwacha (ZMW)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Plans Section -->
+    <section id="pricing-plans" class="section fade-in-content">
+        <div class="container">
+            <h2>Choose Your Plan</h2>
+            <p class="section-subtitle">Simple pricing for schools and businesses in Zambia</p>
+            
+            <div class="pricing-grid">
+                <!-- School Plans Section -->
+                <div class="pricing-category">
+                    <h3 class="category-title">
+                        <iconify-icon icon="material-symbols:school"></iconify-icon>
+                        Schools & Educational Institutions
+                    </h3>
+                    <p class="category-description">Budget-friendly options for schools</p>
+                    
+                    <div class="pricing-plans-row">
+                        <div class="pricing-card">
+                            <div class="plan-header">
+                                <h4>Per Term</h4>
+                                <div class="price">
+                                    <div class="price-comparison">
+                                        <span class="original-price">K800</span>
+                                        <span class="current-price">
+                                            <span class="currency">K</span>
+                                            <span class="amount">200</span>
+                                        </span>
+                                    </div>
+                                    <span class="period">/3 months</span>
+                                </div>
+                            </div>
+                            <p class="plan-description">Perfect for short-term budgeting — 1 computer license for only K200 per term (less than K70/month per device).</p>
+                            <ul class="plan-features">
+                                <li><iconify-icon icon="material-symbols:check"></iconify-icon>1 Computer License</li>
+                            </ul>
+                            <button class="plan-cta" onclick="openPaymentForm('school_single', 3, 200)">Get Started</button>
+                        </div>
+
+                        <div class="pricing-card popular">
+                            <div class="popular-badge">Best Value</div>
+                            <div class="plan-header">
+                                <h4>Annual</h4>
+                                <div class="price">
+                                    <div class="price-comparison">
+                                        <span class="original-price">K1000</span>
+                                        <span class="current-price">
+                                            <span class="currency">K</span>
+                                            <span class="amount">600</span>
+                                        </span>
+                                    </div>
+                                    <span class="period">/year</span>
+                                </div>
+                            </div>
+                            <p class="plan-description">Covers 2 or more computers for a year — just K300/device/year (K50/month). Save 50% compared to termly payments.</p>
+                            <ul class="plan-features">
+                                <li><iconify-icon icon="material-symbols:check"></iconify-icon>2+ Computer License</li>
+                            </ul>
+                            <button class="plan-cta primary" onclick="openPaymentForm('school_multi', 12, 600)">Get Started</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Business Plans Section -->
+                <div class="pricing-category">
+                    <h3 class="category-title">
+                        <iconify-icon icon="material-symbols:business"></iconify-icon>
+                        Businesses & Print Shops
+                    </h3>
+                    <p class="category-description">Perfect for print shops and businesses</p>
+                    
+                    <div class="pricing-plans-row">
+                        <div class="pricing-card">
+                            <div class="plan-header">
+                                <h4>Monthly</h4>
+                                <div class="price">
+                                    <div class="price-comparison">
+                                        <span class="original-price">K100</span>
+                                        <span class="current-price">
+                                            <span class="currency">K</span>
+                                            <span class="amount">50</span>
+                                        </span>
+                                    </div>
+                                    <span class="period">/month</span>
+                                </div>
+                            </div>
+                            <p class="plan-description">Affordable and flexible — 1 computer license for only K50/month.</p>
+                            <ul class="plan-features">
+                                <li><iconify-icon icon="material-symbols:check"></iconify-icon>1 Computer License</li>
+                            </ul>
+                            <button class="plan-cta" onclick="openPaymentForm('business_single', 1, 50)">Get Started</button>
+                        </div>
+
+                        <div class="pricing-card popular">
+                            <div class="popular-badge">Most Popular</div>
+                            <div class="plan-header">
+                                <h4>Annual</h4>
+                                <div class="price">
+                                    <div class="price-comparison">
+                                        <span class="original-price">K1000</span>
+                                        <span class="current-price">
+                                            <span class="currency">K</span>
+                                            <span class="amount">600</span>
+                                        </span>
+                                    </div>
+                                    <span class="period">/year</span>
+                                </div>
+                            </div>
+                            <p class="plan-description">Covers 2 or more computers for a full year — ideal for busy print shops. Perfect for unlimited printing.</p>
+                            <ul class="plan-features">
+                                <li><iconify-icon icon="material-symbols:check"></iconify-icon>2+ Computer License</li>
+                            </ul>
+                            <button class="plan-cta primary" onclick="openPaymentForm('business_multi', 12, 600)">Get Started</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Service Options -->
+    <section id="service-options" class="section alt-bg fade-in-content">
+        <div class="container">
+            <h2>Additional Services</h2>
+            <p class="section-subtitle">Optional add-ons to enhance your IDLab experience</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <iconify-icon icon="material-symbols:design-services"></iconify-icon>
+                    </div>
+                    <h3>Design Only Service</h3>
+                    <p>We design the ID cards for you, you handle printing</p>
+                    <div class="service-price">K3 <span>per candidate</span></div>
+                    <ul class="service-features">
+                        <li>Professional design</li>
+                        <li>High-quality layouts</li>
+                        <li>Print-ready files</li>
+                        <li>Quick turnaround</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <iconify-icon icon="material-symbols:local-printshop"></iconify-icon>
+                    </div>
+                    <h3>Full Service</h3>
+                    <p>Complete service: design, print, laminate, and holders</p>
+                    <div class="service-price">K30 <span>per ID card</span></div>
+                    <ul class="service-features">
+                        <li>Professional design</li>
+                        <li>High-quality printing</li>
+                        <li>Lamination included</li>
+                        <li>ID card holders</li>
+                        <li>Delivery available</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Form Modal -->
+    <div id="payment-modal" class="payment-modal">
+        <div class="payment-modal-content">
+            <div class="payment-modal-header">
+                <h2>Complete Your Purchase</h2>
+                <button class="close-modal" onclick="closePaymentForm()">
+                    <iconify-icon icon="material-symbols:close"></iconify-icon>
+                </button>
+            </div>
+            
+            <div class="payment-modal-body">
+                <!-- Selected Plan Summary -->
+                <div class="plan-summary">
+                    <h3>Selected Plan</h3>
+                    <div class="selected-plan">
+                        <div class="plan-info">
+                            <span id="selected-plan" class="plan-name">Plan Name</span>
+                            <span id="selected-price" class="plan-price">K0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Form -->
+                <form id="payment-form" class="payment-form">
+                    <!-- School/Business Information -->
+                    <div class="form-section">
+                        <h4>School/Business Information</h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="school-name">School/Business Name *</label>
+                                <input type="text" id="school-name" name="school-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="province">Province *</label>
+                                <select id="province" name="province" required>
+                                    <option value="">Select Province</option>
+                                    <option value="Central">Central</option>
+                                    <option value="Copperbelt">Copperbelt</option>
+                                    <option value="Eastern">Eastern</option>
+                                    <option value="Luapula">Luapula</option>
+                                    <option value="Lusaka">Lusaka</option>
+                                    <option value="Muchinga">Muchinga</option>
+                                    <option value="Northern">Northern</option>
+                                    <option value="North-Western">North-Western</option>
+                                    <option value="Southern">Southern</option>
+                                    <option value="Western">Western</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="license-type">Type of License</label>
+                                <input type="text" id="license-type" name="license-type" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="form-section">
+                        <h4>Contact Information</h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="full-name">Full Name *</label>
+                                <input type="text" id="full-name" name="full-name" required placeholder="Person making payment">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required placeholder="For sending license key">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="+260 (WhatsApp preferred)">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Information -->
+                    <div class="form-section">
+                        <h4>Payment Information</h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="payment-method">Payment Method *</label>
+                                <select id="payment-method" name="payment-method" required>
+                                    <option value="">Select Payment Method</option>
+                                    <option value="airtel-money">Airtel Money</option>
+                                    <option value="mtn-money">MTN Money</option>
+                                    <option value="zamtel-money">Zamtel Money</option>
+                                    <option value="bank-transfer">Bank Transfer</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="amount-paid">Amount Paid (ZMW) *</label>
+                                <input type="number" id="amount-paid" name="amount-paid" required min="1" step="1">
+                                <small class="field-note">Auto-filled based on plan. Adjust if paying for extra devices.</small>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-instructions">
+                            <h5>Payment Details:</h5>
+                            <div class="payment-methods">
+                                <div class="payment-method">
+                                    <iconify-icon icon="material-symbols:smartphone"></iconify-icon>
+                                    <div>
+                                        <strong>Mobile Money</strong>
+                                        <p>Airtel: +260 777 274 339<br>Emmanuel Ngwenyama</p>
+                                    </div>
+                                </div>
+                                <div class="payment-method">
+                                    <iconify-icon icon="material-symbols:account-balance"></iconify-icon>
+                                    <div>
+                                        <strong>Bank Transfer</strong>
+                                        <p>Contact us for banking details via WhatsApp</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="payment-proof">Upload Proof of Payment *</label>
+                            <div class="file-upload-container">
+                                <input type="file" id="payment-proof" name="payment-proof" accept="image/*" required>
+                                <div class="file-upload-text">
+                                    <iconify-icon icon="material-symbols:cloud-upload"></iconify-icon>
+                                    <span>Click to upload screenshot of payment confirmation</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Information -->
+                    <div class="form-section">
+                        <h4>Additional Information</h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="how-heard">How did you hear about IDLab?</label>
+                                <select id="how-heard" name="how-heard">
+                                    <option value="">Select one (optional)</option>
+                                    <option value="google-search">Google Search</option>
+                                    <option value="facebook">Facebook</option>
+                                    <option value="whatsapp">WhatsApp</option>
+                                    <option value="friend-colleague">Friend/Colleague</option>
+                                    <option value="school-network">School Network</option>
+                                    <option value="business-network">Business Network</option>
+                                    <option value="advertisement">Advertisement</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" onclick="closePaymentForm()">Cancel</button>
+                        <button type="submit" class="btn-primary" id="submit-payment">
+                            <span class="btn-text">Submit Payment Request</span>
+                            <span class="btn-loader" style="display: none;">
+                                <iconify-icon icon="material-symbols:hourglass-empty"></iconify-icon>
+                                Processing...
+                            </span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="success-modal">
+        <div class="success-modal-content">
+            <div class="success-icon">
+                <iconify-icon icon="material-symbols:check-circle"></iconify-icon>
+            </div>
+            <h2>Payment Request Submitted!</h2>
+            <p>Thank you for your payment. We have received your request and will process it within 24 hours.</p>
+            <div class="success-details">
+                <h4>What happens next?</h4>
+                <ul>
+                    <li>Our team will verify your payment within 24 hours</li>
+                    <li>Once approved, you'll receive your license key via email</li>
+                    <li>You can then activate your IDLab software with the license key</li>
+                    <li>Need help? Contact us on WhatsApp: +260 980 611 865</li>
+                </ul>
+            </div>
+            <button class="btn-primary" onclick="closeSuccessModal()">Got it!</button>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section fade-in-content">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>How do I pay for my license?</h4>
+                    <p>You can pay via Airtel Money (+260 777 274 339) or bank transfer. After payment, upload a screenshot as proof and we'll process your license within 24 hours.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What's included with my license?</h4>
+                    <p>All licenses include unlimited student/client processing, access to all templates, CSV import/export, and email support. Higher tiers include additional features like phone support and training.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Can I use IDLab for commercial purposes?</h4>
+                    <p>Yes! Business licenses include commercial usage rights, perfect for stationery shops and print resellers offering ID card services to schools.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Do you offer refunds?</h4>
+                    <p>We offer a 7-day money-back guarantee if you're not satisfied with IDLab. Contact us within 7 days of license activation for a full refund.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Need Help Choosing?</h2>
+            <div class="contact-content">
+                <p>Not sure which plan is right for you? Contact us and we'll help you choose the best option for your needs.</p>
+                <div class="contact-methods">
+                    <a href="https://wa.me/260980611865?text=Hello%2C%20I%20need%20help%20choosing%20the%20right%20IDLab%20license" target="_blank" rel="noopener" class="contact-method">
+                        <iconify-icon icon="material-symbols:chat"></iconify-icon>
+                        <span>WhatsApp: +260 980 611 865</span>
+                    </a>
+                    <a href="mailto:support@idlab.zm" class="contact-method">
+                        <iconify-icon icon="material-symbols:mail"></iconify-icon>
+                        <span>Email: support@idlab.zm</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/idlab.ico" alt="IDLab Logo" class="logo">
+                </div>
+                <div class="footer-links">
+                    <a href="about.html">About</a>
+                    <a href="download.html">Download</a>
+                    <a href="pricing.html">Pricing</a>
+                    <a href="documentation.html">Documentation</a>
+                    <a href="terms.html">Terms</a>
+                    <a href="privacy.html">Privacy</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://facebook.com/IDLabZambia" target="_blank" rel="noopener" class="social-link">Facebook</a>
+                    <a href="https://wa.me/260980611865?text=Hello%20IDLab%2C%20I%20would%20like%20to%20request%20a%20license%20key." target="_blank" rel="noopener" class="social-link">WhatsApp</a>
+                    <a href="https://t.me/+QNH3A6V6_oo4ZmRk" target="_blank" rel="noopener" class="social-link">Telegram</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 IDLab. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Firebase Configuration and Payment Form Script -->
+    <script src="scripts/firebase-config.js"></script>
+    <script src="scripts/payment-form.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>
