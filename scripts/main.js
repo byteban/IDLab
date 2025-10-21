@@ -1,10 +1,10 @@
-// Loading animation
+// Loading animation - Optimized for fast loading
 window.addEventListener('load', () => {
     const loader = document.querySelector('.page-loader');
     const body = document.body;
     
     if (loader) {
-        // Add a small delay to ensure smooth transition
+        // Reduced delay for faster perceived loading
         setTimeout(() => {
             loader.classList.add('fade-out');
             body.classList.remove('loading');
@@ -12,14 +12,14 @@ window.addEventListener('load', () => {
             // Remove loader from DOM after animation
             setTimeout(() => {
                 loader.remove();
-            }, 500);
+            }, 300);
             
             // Trigger content animations
             animateContent();
             
             // Show announcement modal if enabled
             showAnnouncementModal();
-        }, 800);
+        }, 300); // Reduced from 800ms to 300ms
     } else {
         // If no loader, just animate content
         body.classList.remove('loading');
@@ -160,15 +160,208 @@ function updateModalContent(title, message, icon = null) {
 
 // ==================== END MODAL SYSTEM ====================
 
-// Content animation function
-function animateContent() {
-    const elements = document.querySelectorAll('.fade-in-content');
-    elements.forEach((element, index) => {
-        setTimeout(() => {
-            element.classList.add('visible');
-        }, index * 100);
-    });
+// ==================== DARK MODE SYSTEM ====================
+
+// Check for saved theme preference or default to light mode
+const currentTheme = localStorage.getItem('theme') || 'light';
+if (currentTheme === 'dark') {
+    document.body.classList.add('dark-mode');
 }
+
+// Toggle dark mode
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    
+    // Save preference to localStorage
+    const theme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+    localStorage.setItem('theme', theme);
+    
+    // Update toggle button icon
+    updateDarkModeIcon();
+}
+
+// Update dark mode toggle icon
+function updateDarkModeIcon() {
+    const toggleBtn = document.querySelector('.dark-mode-toggle');
+    if (!toggleBtn) return;
+    
+    const icon = toggleBtn.querySelector('iconify-icon');
+    if (document.body.classList.contains('dark-mode')) {
+        icon.setAttribute('icon', 'mdi:white-balance-sunny');
+    } else {
+        icon.setAttribute('icon', 'mdi:moon-waxing-crescent');
+    }
+}
+
+// Initialize dark mode on page load
+document.addEventListener('DOMContentLoaded', () => {
+    updateDarkModeIcon();
+    
+    // Add click event to dark mode toggle
+    const toggleBtn = document.querySelector('.dark-mode-toggle');
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', toggleDarkMode);
+    }
+});
+
+// ==================== END DARK MODE SYSTEM ====================
+
+// ==================== ANIMATIONS SYSTEM ====================
+
+// Enhanced content animation function - Fast and smooth
+function animateContent() {
+    const fadeElements = document.querySelectorAll('.fade-in-content');
+    const slideLeftElements = document.querySelectorAll('.slide-in-left');
+    const slideRightElements = document.querySelectorAll('.slide-in-right');
+    const scaleElements = document.querySelectorAll('.scale-up');
+    
+    // Intersection Observer for scroll-triggered animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    // Observe all animated elements
+    fadeElements.forEach(el => observer.observe(el));
+    slideLeftElements.forEach(el => observer.observe(el));
+    slideRightElements.forEach(el => observer.observe(el));
+    scaleElements.forEach(el => observer.observe(el));
+}
+
+// ==================== SUCCESS STORIES CAROUSEL ====================
+
+let currentSlide = 0;
+let autoSlideInterval;
+const autoSlideDelay = 5000; // 5 seconds
+
+function initStoriesCarousel() {
+    const storiesGrid = document.querySelector('.stories-grid');
+    const dotsContainer = document.getElementById('storyCarouselDots');
+    
+    if (!storiesGrid || !dotsContainer) return;
+    
+    const cards = storiesGrid.querySelectorAll('.story-card');
+    const totalCards = cards.length;
+    
+    // Determine cards per view based on screen size
+    function getCardsPerView() {
+        if (window.innerWidth <= 640) return 1;
+        if (window.innerWidth <= 980) return 2;
+        return 4;
+    }
+    
+    let cardsPerView = getCardsPerView();
+    const totalSlides = Math.ceil(totalCards / cardsPerView);
+    
+    // Create navigation dots
+    function createDots() {
+        dotsContainer.innerHTML = '';
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('button');
+            dot.classList.add('carousel-dot');
+            dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
+            dotsContainer.appendChild(dot);
+        }
+    }
+    
+    // Go to specific slide
+    function goToSlide(index) {
+        currentSlide = index;
+        const cardWidth = cards[0].offsetWidth;
+        const gap = 24; // 1.5rem in pixels
+        const offset = -(currentSlide * cardsPerView * (cardWidth + gap));
+        
+        storiesGrid.style.transform = `translateX(${offset}px)`;
+        
+        // Update active dot
+        const dots = dotsContainer.querySelectorAll('.carousel-dot');
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentSlide);
+        });
+    }
+    
+    // Next slide
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        goToSlide(currentSlide);
+    }
+    
+    // Auto-slide functionality
+    function startAutoSlide() {
+        stopAutoSlide();
+        autoSlideInterval = setInterval(nextSlide, autoSlideDelay);
+    }
+    
+    function stopAutoSlide() {
+        if (autoSlideInterval) {
+            clearInterval(autoSlideInterval);
+        }
+    }
+    
+    // Handle window resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            const newCardsPerView = getCardsPerView();
+            if (newCardsPerView !== cardsPerView) {
+                cardsPerView = newCardsPerView;
+                currentSlide = 0;
+                createDots();
+                goToSlide(0);
+            }
+        }, 250);
+    });
+    
+    // Pause on hover
+    storiesGrid.addEventListener('mouseenter', stopAutoSlide);
+    storiesGrid.addEventListener('mouseleave', startAutoSlide);
+    
+    // Touch support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    storiesGrid.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        stopAutoSlide();
+    });
+    
+    storiesGrid.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+        startAutoSlide();
+    });
+    
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        if (touchStartX - touchEndX > swipeThreshold) {
+            // Swipe left - next slide
+            nextSlide();
+        } else if (touchEndX - touchStartX > swipeThreshold) {
+            // Swipe right - previous slide
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            goToSlide(currentSlide);
+        }
+    }
+    
+    // Initialize
+    createDots();
+    goToSlide(0);
+    startAutoSlide();
+}
+
+// ==================== END CAROUSEL SYSTEM ====================
 
 // Mobile menu functionality
 document.addEventListener('DOMContentLoaded', () => {
@@ -289,6 +482,14 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.href = `https://www.linkedin.com/sharing/share-offsite/?url=${currentUrl}`;
         }
     });
+    
+    // Initialize animations
+    animateContent();
+    
+    // Initialize stories carousel if on a page with the carousel
+    if (document.querySelector('.stories-grid')) {
+        initStoriesCarousel();
+    }
 });
 
 // Copy to clipboard function

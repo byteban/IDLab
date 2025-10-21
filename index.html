@@ -41,6 +41,12 @@
     </div>
 
     <script src="scripts/main.js" defer></script>
+    
+    <!-- Dark Mode Toggle Button -->
+    <button class="dark-mode-toggle" aria-label="Toggle dark mode">
+        <iconify-icon icon="mdi:moon-waxing-crescent" width="28" height="28"></iconify-icon>
+    </button>
+    
     <!-- Navigation -->
     <nav class="navbar fade-in-content" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
@@ -56,8 +62,6 @@
                     <li><a href="index.html" class="active">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="download.html">Download</a></li>
-                    <li><a href="features.html">Features</a></li>
-                    <li><a href="tutorial.html">Tutorials</a></li>
                     <li><a href="pricing.html">Pricing</a></li>
                     <li><a href="#templates">Templates</a></li>
                     <li><a href="documentation.html">Documentation</a></li>
@@ -108,7 +112,7 @@
     <section id="tab1-showcase" class="section feature-showcase fade-in-content">
         <div class="container">
             <div class="feature-showcase-inner">
-                <div class="feature-text">
+                <div class="feature-text slide-in-left">
                     <div class="feature-badge">Tab 1</div>
                     <h3>Generate IDs</h3>
                     <p>Design and produce printable ID cards from your pupil data and branding assets. Choose photos, output folders, and customize with your logo, coat of arms, motto, and year. Use the preview to confirm layout and colors before exporting as images or PDF.</p>
@@ -119,7 +123,7 @@
                         <li>Export as high-quality images or PDF format</li>
                     </ul>
                 </div>
-                <div class="feature-image">
+                <div class="feature-image slide-in-right">
                     <img src="assets/tab1.png" alt="IDLab Generate IDs Tab - Design and produce printable ID cards" loading="lazy">
                 </div>
             </div>
@@ -130,10 +134,10 @@
     <section id="tab2-showcase" class="section feature-showcase alt-bg fade-in-content">
         <div class="container">
             <div class="feature-showcase-inner reverse">
-                <div class="feature-image">
+                <div class="feature-image slide-in-left">
                     <img src="assets/tab2.png" alt="IDLab Pupil Data Entry Tab - Create, import and manage student records" loading="lazy">
                 </div>
-                <div class="feature-text">
+                <div class="feature-text slide-in-right">
                     <div class="feature-badge">Tab 2</div>
                     <h3>Pupil Data Entry</h3>
                     <p>Create, import, edit and maintain the canonical pupil dataset used to populate ID cards. Import Provisional Registers or add pupils manually, then use search, filters and pagination to manage records efficiently with inline editing capabilities.</p>
@@ -152,7 +156,7 @@
     <section id="tab3-showcase" class="section feature-showcase fade-in-content">
         <div class="container">
             <div class="feature-showcase-inner">
-                <div class="feature-text">
+                <div class="feature-text slide-in-left">
                     <div class="feature-badge">Tab 3</div>
                     <h3>ID Photo Tools</h3>
                     <p>Review, match and manage candidate photos so each pupil has the correct image before generating cards. Use the Renaming Wizard to browse gallery thumbnails, assign photos to pupils, and manage matched vs missing photos with export capabilities.</p>
@@ -163,7 +167,7 @@
                         <li>Management view for matched vs missing photo tracking</li>
                     </ul>
                 </div>
-                <div class="feature-image">
+                <div class="feature-image slide-in-right">
                     <img src="assets/tab3.png" alt="IDLab ID Photo Tools Tab - Review, match and manage student photos" loading="lazy">
                 </div>
             </div>
@@ -224,7 +228,7 @@
                 </div>
                 <!-- Templates Grid Each card should have a preview for the template png-->
                 <div class="templates-grid">
-                    <div class="template-card">
+                    <div class="template-card scale-up">
                         <div class="template-preview">
                             <img src="assets/IDLabTemp1.png" alt="Green Template Preview" class="template-preview-image">
                             <span class="template-badge">Free</span>
@@ -235,7 +239,7 @@
                         </div>
                     </div>
                     
-                    <div class="template-card">
+                    <div class="template-card scale-up">
                         <div class="template-preview">
                             <img src="assets/IDLabTemp2.png" alt="Blue Template Preview" class="template-preview-image">
                             <span class="template-badge">Free</span>
@@ -273,40 +277,59 @@
     <section id="stories" class="section fade-in-content">
         <div class="container">
             <h2>Success Stories</h2>
-            <div class="stories-grid">
-                <div class="story-card">
-                    <p class="story-text">"IDLab gave Nanga Secondary School quick, high-quality ID cards. The system is easy, reliable, and perfect for Zambian schools."</p>
-                    <cite class="story-attribution">
-                        <span class="author-name">Arnold Siachini</span><br>
-                        <span class="author-position">Head of Department, Natural Sciences</span><br>
-                        <span class="author-school">Nanga Secondary School</span>
-                    </cite>
-                </div>
-                <div class="story-card">
-                    <p class="story-text">"IDLab gave Nanga Secondary School quick, high-quality ID cards. The system is easy, reliable, and perfect for Zambian schools."</p>
-                    <cite class="story-attribution">
-                        <span class="author-name">Mr. Siachini</span><br>
-                        <span class="author-position">Head of Department, Natural Sciences</span><br>
-                        <span class="author-school">Nanga Secondary School</span>
-                    </cite>
-                </div>
-                <div class="story-card">
-                    <p class="story-text">"IDLab gave Nanga Secondary School quick, high-quality ID cards. The system is easy, reliable, and perfect for Zambian schools."</p>
-                    <cite class="story-attribution">
-                        <span class="author-name">Mr. Moomba</span><br>
-                        <span class="author-position">Deputy Head Teacher</span><br>
-                        <span class="author-school">Kaleya West Secondary School</span>
-                    </cite>
-                </div>
-                <div class="story-card">
-                    <p class="story-text">"IDLab gave Nanga Secondary School quick, high-quality ID cards. The system is easy, reliable, and perfect for Zambian schools."</p>
-                    <cite class="story-attribution">
-                        <span class="author-name">Arnold Siachini</span><br>
-                        <span class="author-position">Head of Department, Natural Sciences</span><br>
-                        <span class="author-school">Nanga Secondary School</span>
-                    </cite>
+            <div class="stories-carousel-container">
+                <div class="stories-grid">
+                    <div class="story-card">
+                        <p class="story-text">"IDLab gave Nanga Secondary School quick, high-quality ID cards. The system is easy, reliable, and perfect for Zambian schools."</p>
+                        <cite class="story-attribution">
+                            <span class="author-name">Arnold Siachini</span><br>
+                            <span class="author-position">Head of Department, Natural Sciences</span><br>
+                            <span class="author-school">Nanga Secondary School</span>
+                        </cite>
+                    </div>
+                    <div class="story-card">
+                        <p class="story-text">"The photo matching feature saved us hours of work. IDLab is incredibly efficient and user-friendly for managing student ID cards."</p>
+                        <cite class="story-attribution">
+                            <span class="author-name">Mrs. Banda</span><br>
+                            <span class="author-position">School Administrator</span><br>
+                            <span class="author-school">Choma Secondary School</span>
+                        </cite>
+                    </div>
+                    <div class="story-card">
+                        <p class="story-text">"We produced 500+ candidate ID cards in one day. The batch processing and quality output exceeded our expectations completely."</p>
+                        <cite class="story-attribution">
+                            <span class="author-name">Mr. Moomba</span><br>
+                            <span class="author-position">Deputy Head Teacher</span><br>
+                            <span class="author-school">Kaleya West Secondary School</span>
+                        </cite>
+                    </div>
+                    <div class="story-card">
+                        <p class="story-text">"Professional results without the hassle. IDLab's template system and data import made our exam registration process seamless."</p>
+                        <cite class="story-attribution">
+                            <span class="author-name">Mr. Phiri</span><br>
+                            <span class="author-position">Exams Coordinator</span><br>
+                            <span class="author-school">Livingstone High School</span>
+                        </cite>
+                    </div>
+                    <div class="story-card">
+                        <p class="story-text">"The best investment for our school. IDLab handles everything from data entry to printing with remarkable precision and speed."</p>
+                        <cite class="story-attribution">
+                            <span class="author-name">Ms. Mwale</span><br>
+                            <span class="author-position">IT Coordinator</span><br>
+                            <span class="author-school">Mongu Technical School</span>
+                        </cite>
+                    </div>
+                    <div class="story-card">
+                        <p class="story-text">"Simple, powerful, and reliable. Our entire staff learned to use IDLab in just one session. Perfect for Zambian schools."</p>
+                        <cite class="story-attribution">
+                            <span class="author-name">Mr. Zulu</span><br>
+                            <span class="author-position">Head Teacher</span><br>
+                            <span class="author-school">Kabwe Boys Secondary</span>
+                        </cite>
+                    </div>
                 </div>
             </div>
+            <div class="carousel-dots" id="storyCarouselDots"></div>
         </div>
     </section>
 
