@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Test Page - IDLab</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            padding: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #6c757d;
+            margin-bottom: 30px;
+        }
+        .test-btn {
+            background: linear-gradient(135deg, #1bc098, #18a882);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 10px 10px 10px 0;
+            transition: all 0.3s ease;
+        }
+        .test-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(27, 192, 152, 0.3);
+        }
+        .test-btn.secondary {
+            background: #6c757d;
+        }
+        .code-block {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+        }
+        .section {
+            margin: 30px 0;
+            padding: 20px;
+            border-left: 4px solid #1bc098;
+            background: #f8f9fa;
+        }
+        .section h3 {
+            margin-top: 0;
+            color: #1bc098;
+        }
+    </style>
+</head>
+<body>
+    <!-- Announcement Modal -->
+    <div id="announcementModal" class="modal-overlay">
+        <div class="modal-container">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <div class="modal-content">
+                <div class="modal-icon">
+                    <iconify-icon icon="mdi:bell-ring" width="48" height="48"></iconify-icon>
+                </div>
+                <h2 class="modal-title" id="modalTitle">Announcement</h2>
+                <div class="modal-message" id="modalMessage">
+                    <p>Welcome to IDLab! Check out our latest features and updates.</p>
+                </div>
+                <div class="modal-actions">
+                    <button class="modal-btn modal-btn-primary" id="modalActionBtn">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="test-container">
+        <h1>🎯 Modal Test Page</h1>
+        <p class="subtitle">Test the announcement modal with different configurations</p>
+
+        <div class="section">
+            <h3>Quick Test Buttons</h3>
+            <p>Click any button below to preview different modal configurations:</p>
+            <button class="test-btn" onclick="showReleaseModal()">🚀 Software Release</button>
+            <button class="test-btn" onclick="showEventModal()">📅 Event Notice</button>
+            <button class="test-btn" onclick="showMaintenanceModal()">⚠️ Maintenance Alert</button>
+            <button class="test-btn" onclick="showPromoModal()">🎁 Promotion</button>
+            <button class="test-btn" onclick="showWelcomeModal()">👋 Welcome Message</button>
+            <button class="test-btn secondary" onclick="closeAnnouncementModal()">✖️ Close Modal</button>
+        </div>
+
+        <div class="section">
+            <h3>Configuration Status</h3>
+            <p><strong>Modal Enabled:</strong> <span id="configStatus">Loading...</span></p>
+            <p><strong>Auto-close:</strong> <span id="autoCloseStatus">Loading...</span></p>
+            <p><strong>Show Once:</strong> <span id="showOnceStatus">Loading...</span></p>
+            <button class="test-btn" onclick="displayConfig()">📋 Show Current Config</button>
+            <button class="test-btn secondary" onclick="sessionStorage.clear(); alert('Session cleared!')">🗑️ Clear Session</button>
+        </div>
+
+        <div class="section">
+            <h3>How to Use in Your Site</h3>
+            <p>To enable/disable the modal on your main site, edit <code>scripts/main.js</code>:</p>
+            <div class="code-block">
+const modalConfig = {<br>
+&nbsp;&nbsp;enabled: true,  // ← Change to false to disable<br>
+&nbsp;&nbsp;autoClose: true,<br>
+&nbsp;&nbsp;autoCloseDelay: 10000,<br>
+&nbsp;&nbsp;showOnce: false,<br>
+&nbsp;&nbsp;title: "Your Title",<br>
+&nbsp;&nbsp;message: "Your message...",<br>
+&nbsp;&nbsp;...<br>
+};
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Documentation</h3>
+            <p>For complete documentation, see <code>MODAL_USAGE.md</code></p>
+            <p>For ready-to-use configurations, see <code>MODAL_CONFIGURATIONS.js</code></p>
+        </div>
+    </div>
+
+    <script>
+        // Modal configuration (same as main.js)
+        const modalConfig = {
+            enabled: true,
+            autoClose: true,
+            autoCloseDelay: 10000,
+            showOnce: false,
+            title: "🎉 Welcome to the Test Page!",
+            message: `
+                <p><strong>This is a test of the announcement modal.</strong></p>
+                <p>Click the buttons above to try different configurations.</p>
+            `,
+            icon: "mdi:test-tube",
+            actionButton: {
+                show: true,
+                text: "Got It!",
+                link: "#"
+            }
+        };
+
+        // Display config status
+        function displayConfig() {
+            document.getElementById('configStatus').textContent = modalConfig.enabled ? '✅ Yes' : '❌ No';
+            document.getElementById('autoCloseStatus').textContent = modalConfig.autoClose ? `✅ Yes (${modalConfig.autoCloseDelay/1000}s)` : '❌ No';
+            document.getElementById('showOnceStatus').textContent = modalConfig.showOnce ? '✅ Yes' : '❌ No';
+            
+            console.log('Current Configuration:', modalConfig);
+        }
+
+        // Test modal functions
+        function showReleaseModal() {
+            showModal({
+                enabled: true,
+                title: "🚀 IDLab v3.0 Released!",
+                message: `
+                    <p><strong>We're excited to announce IDLab v3.0!</strong></p>
+                    <ul>
+                        <li>AI-powered template suggestions</li>
+                        <li>Real-time collaboration</li>
+                        <li>Cloud backup and sync</li>
+                    </ul>
+                `,
+                icon: "mdi:rocket-launch",
+                autoClose: false,
+                actionButton: { show: true, text: "Download Now", link: "#" }
+            });
+        }
+
+        function showEventModal() {
+            showModal({
+                enabled: true,
+                title: "📅 Upcoming Webinar",
+                message: `
+                    <p><strong>Join us for a live demo!</strong></p>
+                    <p>📆 Date: October 25, 2025</p>
+                    <p>🕐 Time: 2:00 PM GMT</p>
+                `,
+                icon: "mdi:calendar-star",
+                autoClose: true,
+                autoCloseDelay: 8000,
+                actionButton: { show: true, text: "Register Now", link: "#" }
+            });
+        }
+
+        function showMaintenanceModal() {
+            showModal({
+                enabled: true,
+                title: "⚠️ Scheduled Maintenance",
+                message: `
+                    <p><strong>System maintenance scheduled</strong></p>
+                    <p>📅 Date: October 22, 2025</p>
+                    <p>⏰ Time: 2:00 AM - 4:00 AM GMT</p>
+                `,
+                icon: "mdi:alert-circle",
+                autoClose: true,
+                autoCloseDelay: 6000,
+                actionButton: { show: false }
+            });
+        }
+
+        function showPromoModal() {
+            showModal({
+                enabled: true,
+                title: "🎁 Limited Time Offer!",
+                message: `
+                    <p><strong>50% OFF Premium Templates</strong></p>
+                    <p>💰 Use code: <strong>SAVE50</strong></p>
+                    <p>⏰ Offer ends October 31, 2025</p>
+                `,
+                icon: "mdi:gift",
+                autoClose: false,
+                actionButton: { show: true, text: "Shop Now", link: "#" }
+            });
+        }
+
+        function showWelcomeModal() {
+            showModal({
+                enabled: true,
+                title: "👋 Welcome to IDLab!",
+                message: `
+                    <p><strong>Thank you for visiting!</strong></p>
+                    <p>Create professional ID cards in minutes with our easy-to-use tools.</p>
+                `,
+                icon: "mdi:hand-wave",
+                autoClose: true,
+                autoCloseDelay: 5000,
+                actionButton: { show: true, text: "Get Started", link: "#" }
+            });
+        }
+
+        // Modal control functions (same as main.js)
+        function showAnnouncementModal() {
+            if (!modalConfig.enabled) return;
+            
+            if (modalConfig.showOnce && sessionStorage.getItem('modalShown')) {
+                return;
+            }
+            
+            const modal = document.getElementById('announcementModal');
+            if (!modal) return;
+            
+            const titleElement = document.getElementById('modalTitle');
+            const messageElement = document.getElementById('modalMessage');
+            const iconElement = modal.querySelector('.modal-icon iconify-icon');
+            const actionBtn = document.getElementById('modalActionBtn');
+            
+            if (titleElement) titleElement.textContent = modalConfig.title;
+            if (messageElement) messageElement.innerHTML = modalConfig.message;
+            if (iconElement) iconElement.setAttribute('icon', modalConfig.icon);
+            
+            if (actionBtn) {
+                if (modalConfig.actionButton.show) {
+                    actionBtn.textContent = modalConfig.actionButton.text;
+                    actionBtn.style.display = 'inline-block';
+                    actionBtn.onclick = () => {
+                        if (modalConfig.actionButton.link && modalConfig.actionButton.link !== '#') {
+                            window.location.href = modalConfig.actionButton.link;
+                        }
+                        closeAnnouncementModal();
+                    };
+                } else {
+                    actionBtn.style.display = 'none';
+                }
+            }
+            
+            setTimeout(() => {
+                modal.classList.add('show');
+                
+                if (modalConfig.showOnce) {
+                    sessionStorage.setItem('modalShown', 'true');
+                }
+                
+                if (modalConfig.autoClose) {
+                    setTimeout(() => {
+                        closeAnnouncementModal();
+                    }, modalConfig.autoCloseDelay);
+                }
+            }, 500);
+            
+            const closeBtn = modal.querySelector('.modal-close');
+            if (closeBtn) closeBtn.onclick = closeAnnouncementModal;
+            
+            modal.onclick = (e) => {
+                if (e.target === modal) closeAnnouncementModal();
+            };
+            
+            document.addEventListener('keydown', handleEscapeKey);
+        }
+
+        function closeAnnouncementModal() {
+            const modal = document.getElementById('announcementModal');
+            if (modal) {
+                modal.classList.remove('show');
+                document.removeEventListener('keydown', handleEscapeKey);
+            }
+        }
+
+        function handleEscapeKey(e) {
+            if (e.key === 'Escape') closeAnnouncementModal();
+        }
+
+        function showModal(config = {}) {
+            Object.assign(modalConfig, config);
+            showAnnouncementModal();
+        }
+
+        // Initialize on page load
+        window.addEventListener('load', () => {
+            displayConfig();
+            // Show modal after a short delay
+            setTimeout(() => {
+                if (modalConfig.enabled) {
+                    showAnnouncementModal();
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
