@@ -5,8 +5,13 @@ A comprehensive dark mode implementation has been added to the IDLab website, pr
 
 ## ✨ Features
 
+### System Preference Detection (New!)
+- **Automatic Theme Detection**: If you haven't chosen a theme, the site automatically uses your OS/browser dark mode setting
+- **Live Updates**: Changes to your system color scheme are instantly reflected on the page
+- **User Choice Priority**: Once you click the toggle button, your preference is saved and system changes won't override it
+
 ### Automatic Persistence
-- **LocalStorage Integration**: Your theme preference is automatically saved
+- **LocalStorage Integration**: Your theme preference is automatically saved when you use the toggle
 - **Cross-page Consistency**: Theme persists across all pages during your session
 - **Instant Loading**: Theme applies before page render to prevent flashing
 
@@ -48,12 +53,26 @@ All pages support dark mode:
 ## 🎯 Usage
 
 ### For Users
-1. **Toggle Button**: Fixed floating button in bottom-right corner
-2. **Click to Switch**: Toggle between light and dark themes
+
+#### Automatic Behavior
+1. **First Visit**: The site automatically matches your operating system's dark/light mode preference
+2. **System Changes**: If you change your OS color scheme (e.g., Windows dark mode), the site updates automatically
+3. **Manual Override**: Click the toggle button to choose your own preference
+
+#### Toggle Button
+1. **Location**: Fixed floating button in bottom-right corner
+2. **Click to Switch**: Toggle between light and dark themes manually
 3. **Icon Changes**: 
    - 🌙 Moon icon = Light mode active (click for dark)
    - ☀️ Sun icon = Dark mode active (click for light)
-4. **Automatic Save**: Preference remembered for future visits
+4. **Saved Preference**: Your manual choice overrides system settings and is remembered for future visits
+
+#### Reset to System Preference
+To let the site follow your OS setting again:
+1. Open browser Developer Tools (F12)
+2. Go to Console tab
+3. Type: `localStorage.removeItem('theme')`
+4. Press Enter and refresh the page
 
 ### For Developers
 
@@ -105,10 +124,12 @@ localStorage.setItem('theme', 'light');
 - Added smooth transitions for theme switching
 
 ### 2. `scripts/main.js`
-- Added dark mode toggle function
-- Added localStorage persistence
+- Added system color scheme detection using `prefers-color-scheme` media query
+- Added automatic dark mode if system preference is dark (when no saved preference exists)
+- Added listener for system color scheme changes with automatic theme updates
+- Added dark mode toggle function with localStorage persistence
 - Added icon update logic
-- Added initialization on page load
+- User manual choice always takes precedence over system preference
 
 ### 3. All HTML Pages
 - Added dark mode toggle button before navigation
@@ -164,22 +185,49 @@ All major UI components support dark mode:
 
 ## 🌟 Best Practices
 
-1. **Maintain Contrast**: All text has sufficient contrast in both modes
-2. **Consistent Branding**: Primary teal color (#1bc098) remains the same
-3. **Smooth Transitions**: All color changes are animated (0.3s ease)
-4. **Accessible**: ARIA labels on toggle button
-5. **Performance**: Theme applies instantly on load
-6. **User Choice**: Preference persists across sessions
+1. **Respect System Preferences**: Site automatically follows OS color scheme for new users
+2. **Maintain Contrast**: All text has sufficient contrast in both modes
+3. **Consistent Branding**: Primary teal color (#1bc098) remains the same
+4. **Smooth Transitions**: All color changes are animated (0.3s ease)
+5. **Accessible**: ARIA labels on toggle button
+6. **Performance**: Theme applies instantly on load without flash
+7. **User Choice**: Manual preference persists across sessions and overrides system settings
+
+## 🎯 Theme Priority Logic
+
+The site applies themes in this order of precedence:
+
+1. **User Manual Choice** (highest priority)
+   - If you've clicked the toggle button, your choice is saved in `localStorage`
+   - This overrides everything else
+
+2. **System Preference** (fallback)
+   - If no manual choice exists, the site checks `prefers-color-scheme`
+   - Automatically updates when you change OS settings
+
+3. **Light Mode** (default)
+   - Only used if browser doesn't support `prefers-color-scheme`
 
 ## 🐛 Troubleshooting
 
-### Theme not persisting
+### Theme not persisting after I clicked the toggle
 - Check browser localStorage is enabled
 - Clear cache and reload
+- Verify no browser extensions are blocking localStorage
 
-### Flash of light theme
+### Theme not following my OS setting
+- You may have previously clicked the toggle button, which saves a manual preference
+- To reset: Open Developer Tools Console, run `localStorage.removeItem('theme')`, then refresh
+- Check your browser supports `prefers-color-scheme` (all modern browsers do)
+
+### Flash of light theme on page load
 - Theme is applied on DOMContentLoaded
 - Check JavaScript is loading correctly
+- Verify `main.js` is included with `defer` attribute
+
+### Site doesn't update when I change OS dark mode
+- If you've manually clicked the toggle button, the site won't auto-update (by design)
+- To re-enable system tracking: `localStorage.removeItem('theme')` in console, then refresh
 
 ### Elements not switching
 - Ensure elements use CSS variables (--var-name)

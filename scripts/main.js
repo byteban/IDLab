@@ -162,10 +162,37 @@ function updateModalContent(title, message, icon = null) {
 
 // ==================== DARK MODE SYSTEM ====================
 
-// Check for saved theme preference or default to light mode
-const currentTheme = localStorage.getItem('theme') || 'light';
-if (currentTheme === 'dark') {
+// Check for saved theme preference. If none, use the user's system preference.
+const savedTheme = localStorage.getItem('theme');
+const supportsPrefers = window.matchMedia !== undefined;
+const systemPrefersDark = supportsPrefers && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+if (savedTheme === 'dark' || (savedTheme === null && systemPrefersDark)) {
     document.body.classList.add('dark-mode');
+}
+
+// Listen for changes to the system color scheme only when the user hasn't chosen a preference.
+if (supportsPrefers) {
+    const colorSchemeMedia = window.matchMedia('(prefers-color-scheme: dark)');
+    const handleSystemThemeChange = (e) => {
+        // Respect explicit user choice stored in localStorage
+        if (localStorage.getItem('theme')) return;
+
+        if (e.matches) {
+            document.body.classList.add('dark-mode');
+        } else {
+            document.body.classList.remove('dark-mode');
+        }
+        // Update the toggle icon if it's available
+        updateDarkModeIcon();
+    };
+
+    // Add change listener with backwards compatibility
+    if (typeof colorSchemeMedia.addEventListener === 'function') {
+        colorSchemeMedia.addEventListener('change', handleSystemThemeChange);
+    } else if (typeof colorSchemeMedia.addListener === 'function') {
+        colorSchemeMedia.addListener(handleSystemThemeChange);
+    }
 }
 
 // Toggle dark mode
