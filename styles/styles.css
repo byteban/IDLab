@@ -28,6 +28,7 @@ body.dark-mode .loader-text {
 .page-loader.fade-out {
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
 }
 
 .loader-content {
@@ -4696,10 +4697,13 @@ body.dark-mode .download-primary {
     background: var(--gradient-accent);
     color: #ffffff !important;
     box-shadow: 0 6px 16px -4px rgba(27,192,152,.6);
+    cursor: pointer;
+    pointer-events: auto;
 }
 
 body.dark-mode .download-primary:hover {
     color: #ffffff !important;
+    box-shadow: 0 10px 26px -6px rgba(27,192,152,.7);
 }
 
 body.dark-mode .requirements-grid,
@@ -5060,11 +5064,11 @@ body.dark-mode .feature-icon {
 }
 
 /* Ensure link visibility */
-body.dark-mode a:not(.btn):not(.button):not(.primary-btn):not(.secondary-btn):not(.nav-download-btn) {
+body.dark-mode a:not(.btn):not(.button):not(.primary-btn):not(.secondary-btn):not(.nav-download-btn):not(.download-primary) {
     color: var(--primary-color);
 }
 
-body.dark-mode a:not(.btn):not(.button):not(.primary-btn):not(.secondary-btn):not(.nav-download-btn):hover {
+body.dark-mode a:not(.btn):not(.button):not(.primary-btn):not(.secondary-btn):not(.nav-download-btn):not(.download-primary):hover {
     color: var(--primary-dark);
 }
 
