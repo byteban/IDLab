@@ -16,7 +16,7 @@ function switchTab(tabName) {
         selectedTab.classList.add('active');
         
         // Activate corresponding button
-        const buttonIndex = ['stats', 'payments', 'requests', 'licenses', 'users'].indexOf(tabName);
+        const buttonIndex = ['stats', 'payments', 'approvals', 'requests', 'licenses', 'users'].indexOf(tabName);
         if (buttonIndex !== -1) {
             buttons[buttonIndex].classList.add('active');
         }
@@ -28,6 +28,9 @@ function switchTab(tabName) {
                 break;
             case 'payments':
                 loadPayments();
+                break;
+            case 'approvals':
+                loadApprovals();
                 break;
             case 'requests':
                 loadLicenseRequests();

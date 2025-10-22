@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "my-fastapi-app"
-  }
+    "default": "idlab-d9000"
+  },
+  "targets": {},
+  "etags": {}
 }

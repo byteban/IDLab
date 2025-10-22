@@ -208,6 +208,22 @@
             color: var(--primary-dark);
         }
 
+        .badge {
+            background: var(--danger);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-left: 6px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
         .tab-content {
             display: none;
             padding: 24px;
@@ -852,6 +868,11 @@
                     <i class="fas fa-credit-card"></i>
                     <span>Payments</span>
                 </button>
+                <button class="tab-button" onclick="switchTab('approvals')">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Approvals</span>
+                    <span id="pending-approvals-badge" class="badge" style="display: none;">0</span>
+                </button>
                 <button class="tab-button" onclick="switchTab('requests')">
                     <i class="fas fa-clipboard-list"></i>
                     <span>License Requests</span>
@@ -946,6 +967,39 @@
                     <div class="loading">
                         <i class="fas fa-spinner"></i>
                         <p>Loading payments...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Approvals Tab -->
+            <div id="approvals-tab" class="tab-content">
+                <h2><i class="fas fa-check-double"></i> Approval Requests</h2>
+                <div class="filter-controls">
+                    <label><i class="fas fa-filter"></i> Status:</label>
+                    <select id="approval-status-filter">
+                        <option value="all">All</option>
+                        <option value="pending" selected>Pending</option>
+                        <option value="approved">Approved</option>
+                        <option value="rejected">Rejected</option>
+                        <option value="expired">Expired</option>
+                    </select>
+                    <label><i class="fas fa-tag"></i> Type:</label>
+                    <select id="approval-type-filter">
+                        <option value="all" selected>All Types</option>
+                        <option value="license_extension">License Extension</option>
+                        <option value="feature_request">Feature Request</option>
+                        <option value="refund_request">Refund Request</option>
+                        <option value="custom_template">Custom Template</option>
+                        <option value="account_upgrade">Account Upgrade</option>
+                    </select>
+                    <button onclick="loadApprovals()">
+                        <i class="fas fa-sync-alt"></i> Refresh
+                    </button>
+                </div>
+                <div id="approvals-container">
+                    <div class="loading">
+                        <i class="fas fa-spinner"></i>
+                        <p>Loading approval requests...</p>
                     </div>
                 </div>
             </div>
@@ -1056,7 +1110,9 @@
     <script src="js/auth.js"></script>
     <script src="js/dashboard.js"></script>
     <script src="js/payments.js"></script>
+    <script src="js/approvals.js"></script>
     <script src="js/licenses.js"></script>
+    <script src="js/license-requests.js"></script>
     <script src="js/statistics.js"></script>
 </body>
 </html>

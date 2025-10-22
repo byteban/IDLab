@@ -171,6 +171,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Save to Firestore
                 console.log('Saving license request...');
+                console.log('License data:', licenseData);
                 const docRef = await db.collection('license_requests').add(licenseData);
                 console.log('License request saved with ID:', docRef.id);
                 

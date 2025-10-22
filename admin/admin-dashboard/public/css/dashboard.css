@@ -68,3 +68,60 @@ h1 {
     bottom: 0;
     width: 100%;
 }
+
+/* Payment proof link styling */
+.payment-proof-link {
+    color: #1bc098 !important;
+    text-decoration: none !important;
+    font-size: 0.875rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.payment-proof-link:hover {
+    background-color: rgba(27, 192, 152, 0.1);
+    text-decoration: none !important;
+}
+
+/* Request details styling */
+.request-details {
+    max-width: 600px;
+}
+
+.detail-section {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #1bc098;
+}
+
+.detail-section h4 {
+    margin: 0 0 10px 0;
+    color: #2c3e50;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.detail-section p {
+    margin: 5px 0;
+    color: #5a6c7d;
+}
+
+.detail-actions {
+    margin-top: 20px;
+    text-align: center;
+    padding: 15px;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #e1e8ed;
+}
+
+.detail-actions .btn {
+    margin: 0 10px;
+}

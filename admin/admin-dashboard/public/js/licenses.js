@@ -390,18 +390,98 @@ async function viewRequestDetails(requestId) {
 }
 
 async function approveRequest(requestId) {
-    if (!confirm('Are you sure you want to approve this request?')) {
+    // Show custom confirmation modal
+    const confirmed = await showConfirmationModal(
+        'Approve License Request',
+        'Are you sure you want to approve this request and generate a license?<br><br>An email with the license key will be sent to the user.',
+        null,
+        'fa-check-circle',
+        'var(--primary-green)'
+    );
+    
+    if (!confirmed) {
         return;
     }
     
     try {
+        // Get the request data
+        const requestDoc = await db.collection('license_requests').doc(requestId).get();
+        
+        if (!requestDoc.exists) {
+            alert('Request not found');
+            return;
+        }
+        
+        const request = requestDoc.data();
+        
+        // Create a payment record (which will trigger the email Cloud Function)
+        const paymentData = {
+            full_name: request.full_name || request.name,
+            email: request.email,
+            phone: request.phone,
+            school: request.school_name,
+            business_name: request.business_name,
+            package_type: request.package_type,
+            duration_months: request.duration_months,
+            duration: request.duration_months,
+            amount: request.amount_paid || request.amount,
+            payment_method: request.payment_method,
+            transaction_id: request.transaction_id || 'N/A',
+            proof_of_payment_url: request.payment_proof_url,
+            status: 'approved', // Set directly to approved
+            submitted_at: request.created_at || firebase.firestore.FieldValue.serverTimestamp(),
+            approved_at: firebase.firestore.FieldValue.serverTimestamp(),
+            approved_by: firebase.auth().currentUser.email,
+            source: 'license_request',
+            license_request_id: requestId
+        };
+        
+        // Create payment document
+        const paymentRef = await db.collection('payments').add(paymentData);
+        const paymentId = paymentRef.id;
+        
+        // Generate license key
+        const licenseKey = generateLicenseKey();
+        
+        // Create license in database
+        const organization = request.school_name || request.business_name || '';
+        const durationMonths = parseInt(request.duration_months || request.duration || 12);
+        const expiryDate = new Date();
+        expiryDate.setMonth(expiryDate.getMonth() + durationMonths);
+        
+        await db.collection('licenses').add({
+            key: licenseKey,
+            user_email: request.email,
+            user_name: request.full_name || request.name,
+            organization: organization,
+            type: request.package_type,
+            duration_months: durationMonths,
+            created_at: firebase.firestore.FieldValue.serverTimestamp(),
+            expires_at: firebase.firestore.Timestamp.fromDate(expiryDate),
+            is_active: true,
+            payment_id: paymentId,
+            license_request_id: requestId,
+            max_devices: getMaxDevicesForType(request.package_type)
+        });
+        
+        // Update license request status
         await db.collection('license_requests').doc(requestId).update({
             status: 'approved',
             approved_at: firebase.firestore.FieldValue.serverTimestamp(),
-            approved_by: firebase.auth().currentUser.email
+            approved_by: firebase.auth().currentUser.email,
+            payment_id: paymentId,
+            license_key: licenseKey
         });
         
-        alert('Request approved successfully');
+        // Show success message
+        await showConfirmationModal(
+            'License Request Approved! ✅',
+            `License key generated: <div class="license-key" style="background: #f0f0f0; padding: 10px; margin: 10px 0; border-radius: 5px; font-family: monospace; font-size: 14px;">${licenseKey}</div>An email with the license key and receipt has been automatically sent to <strong>${request.email}</strong>`,
+            null,
+            'fa-check-circle',
+            'var(--success)'
+        );
+        
         loadLicenseRequests();
         loadStatistics();
         
