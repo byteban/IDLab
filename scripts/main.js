@@ -35,21 +35,22 @@ window.addEventListener('load', () => {
 // Configuration for the announcement modal
 const modalConfig = {
     enabled: true,
-    autoClose: true,
-    autoCloseDelay: 8000,
+    autoClose: false,          // Don't auto-close construction notice
+    autoCloseDelay: 50000,
     showOnce: true,
-    title: "📅 Upcoming Webinar",
+    title: "🚧 Site Under Construction",
     message: `
-        <p><strong>Join us for a live demo!</strong></p>
-        <p>📆 Date: October 25, 2025</p>
-        <p>🕐 Time: 2:00 PM GMT</p>
-        <p>Learn how to create professional ID cards in minutes.</p>
+        <p><strong>Thank you for visiting!</strong></p>
+        <p>Our website is currently undergoing improvements to serve you better.</p>
+        <p>During this time, some features may be limited or unavailable.</p>
+        <p>We're working hard to complete the updates soon and appreciate your patience.</p>
+        <p>Please check back regularly for new content and features.</p>
     `,
-    icon: "mdi:calendar-star",
+    icon: "mdi:hammer-wrench",
     actionButton: {
         show: true,
-        text: "Register Now",
-        link: "https://yourwebinar.link"
+        text: "Contact Us",
+        link: "#contact"       // Link to contact section or page
     }
 };
 
