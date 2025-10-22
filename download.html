@@ -12,11 +12,11 @@
     <!-- Loading Animation -->
     <div class="page-loader">
         <div class="loader-content">
-            <img src="assets/idlab.ico" alt="IDLab Logo" class="loader-logo">
-            <div class="loader-spinner"></div>
-            <div class="loader-text">Loading Downloads...</div>
-            <div class="loader-progress">
-                <div class="loader-progress-bar"></div>
+            <div class="loader-spinner">
+                <span class="loader-dot"></span>
+                <span class="loader-dot"></span>
+                <span class="loader-dot"></span>
+                <span class="loader-dot"></span>
             </div>
         </div>
     </div>
@@ -31,20 +31,31 @@
             <div class="nav-container">
                 <a href="index.html" class="nav-logo" aria-label="IDLab Home">
                     <img src="assets/idlab.ico" alt="IDLab Logo" class="logo" />
+                    <span class="nav-brand-text">IDLab</span>
                 </a>
                 <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="download-menu">
                     <span></span><span></span><span></span>
                 </button>
                 <div class="nav-wrapper" id="download-menu">
                     <ul class="nav-menu">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
+                        <li class="nav-dropdown">
+                            <a href="#" class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+                                Learn <iconify-icon icon="mdi:chevron-down" width="20" height="20"></iconify-icon>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="documentation.html" role="menuitem">Documentation</a></li>
+                                <li><a href="about.html" role="menuitem">About</a></li>
+                                <li><a href="blog.html" role="menuitem">Blog</a></li>
+                            </ul>
+                        </li>
                         <li><a class="active" href="download.html">Download</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
                         <li><a href="index.html#templates">Templates</a></li>
-                        <li><a href="documentation.html">Documentation</a></li>
                         <li><a href="index.html#contact">Contact</a></li>
                     </ul>
-                    <div class="nav-cta"><a class="nav-download-btn" href="#download">Get IDLab</a></div>
+                    <div class="nav-cta">
+                        <a class="nav-download-btn" href="#download">Get IDLab</a>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -53,65 +64,27 @@
         <section id="download" class="download-hero simple-download">
             <div class="container">
                 <h1>Download IDLab</h1>
-                <p class="subtitle">Choose your platform to get started.</p>
+                <p class="subtitle">Choose the right version for your workflow</p>
                 <div class="platform-grid">
                     <!-- Desktop -->
                     <div class="platform-card">
-                        <div class="platform-head">
-                            <span class="plat-icon" aria-hidden="true">
-                                <svg viewBox="0 0 48 48" class="icon icon-desktop" role="img"><rect x="6" y="8" width="36" height="24" rx="3" ry="3" fill="url(#gradDesktop)" stroke="#14a07d" stroke-width="1.5"/><rect x="11" y="13" width="26" height="14" rx="2" ry="2" fill="#ffffff"/><path d="M18 40h12l-1.8-5H19.8L18 40z" fill="#14a07d" opacity=".85"/><path d="M10 32h28" stroke="#14a07d" stroke-width="2" stroke-linecap="round"/></svg>
-                            </span>
-                            <h3>IDLab Desktop</h3>
+                        <h3>IDLab Desktop</h3>
+                        <p class="platform-use">For creating, designing, and printing ID cards. Manage candidate data, import CSV files, customize templates, and export high-quality PDFs ready for printing.</p>
+                        <a href="#" class="download-primary" aria-label="Download IDLab Desktop for Windows">Download for Windows</a>
+                        <div class="platform-specs">
+                            <p><strong>Requirements:</strong> Windows 10+, 4GB RAM</p>
                         </div>
-                        <p class="plat-desc">Full ID creation suite for Windows.</p>
-                        <a href="#" class="download-primary" aria-label="Download IDLab Desktop for Windows">Download for Windows (.exe)</a>
-                        <ul class="mini-list">
-                            <li>Batch card generation</li>
-                            <li>Template backgrounds</li>
-                            <li>High‑quality PDF export</li>
-                        </ul>
                     </div>
                     <!-- Android -->
                     <div class="platform-card">
-                        <div class="platform-head">
-                            <span class="plat-icon" aria-hidden="true">
-                                <!-- Android SVG icon -->
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="34" height="34" fill="#1bc098">
-                                    <path d="M12.5 36c0 1.1.9 2 2 2s2-.9 2-2v-6h-4v6zm19 0c0 1.1.9 2 2 2s2-.9 2-2v-6h-4v6zm-13.7-19.2l-2.1-3.6c-.2-.3-.1-.7.2-.9.3-.2.7-.1.9.2l2.1 3.6c2.1-1.1 4.5-1.7 7-1.7s4.9.6 7 1.7l2.1-3.6c.2-.3.6-.4.9-.2.3.2.4.6.2.9l-2.1 3.6c3.2 2 5.3 5.5 5.3 9.4v7c0 2.2-1.8 4-4 4H14c-2.2 0-4-1.8-4-4v-7c0-3.9 2.1-7.4 5.3-9.4zM19 20c-.6 0-1 .4-1 1s.4 1 1 1 1-.4 1-1-.4-1-1-1zm10 0c-.6 0-1 .4-1 1s.4 1 1 1 1-.4 1-1-.4-1-1-1z"/>
-                                </svg>
-                            </span>
-                            <h3>IDLab Capture (Android)</h3>
-                        </div>
-                        <p class="plat-desc">Capture photos & associate IDs on‑site.</p>
+                        <h3>IDLab Capture (Android)</h3>
+                        <p class="platform-use">For capturing candidate photos on-site. Import your CSV data, photograph students using your device camera, then transfer photos to Desktop for card generation.</p>
                         <a href="#" class="download-primary android" aria-label="Download Android APK">Download APK</a>
-                        <div class="perm-warning" role="alert">
-                            <strong>Permissions:</strong> Allow Camera + Storage (needed to save and link photos). If blocked, open Settings → Apps → IDLab Capture → Permissions.
+                        <div class="platform-specs">
+                            <p><strong>Requirements:</strong> Android 6.0+, Camera & Storage permissions</p>
+                            <p><strong>Note:</strong> Enable "Install from Unknown Sources" in Settings → Security</p>
                         </div>
-                        <ul class="mini-list">
-                            <li>Auto naming</li>
-                            <li>Offline ready</li>
-                            <li>Optimized image sizing</li>
-                        </ul>
                     </div>
-                    <!-- iOS Coming Soon -->
-                    <div class="platform-card disabled" aria-disabled="true">
-                        <div class="platform-head">
-                            <span class="plat-icon faded" aria-hidden="true">
-                                <svg viewBox="0 0 48 48" class="icon icon-ios" role="img"><path d="M30 4c-2.6.2-5.6 1.9-7.3 4-1.6 2-2.9 5.1-2.4 8 .1.5.3 1 .5 1.5.6 0 1.1-.1 1.7-.3 2-.6 3.6-1.7 5-3.2 1.4-1.5 2.4-3.4 2.9-5.4.4-1.6.4-3.3-.4-4.6z" fill="#1bc098" opacity=".35"/><path d="M36.5 24.2c-1.9-.1-3.5 1.1-4.9 1.1-1.5 0-3.3-1-5.4-1-2.8.1-5.3 1.6-6.7 4.1-2.9 5.1-.8 12.7 2.1 16.8 1.4 2 3.1 4.3 5.3 4.2 2.1-.1 2.9-1.4 5.4-1.4 2.5 0 3.2 1.4 5.4 1.3 2.2 0 3.6-2 5-4 1.6-2.3 2.3-4.5 2.3-4.6-.1 0-4.4-1.7-4.5-6.8-.1-4.3 3.5-6.3 3.7-6.4-2-.3-3.9-2.1-4.7-2.3-.5-.2-1-.4-1.6-.4z" fill="#1bc098" opacity=".2"/></svg>
-                            </span>
-                            <h3>iOS (Coming Soon)</h3>
-                        </div>
-                        <p class="plat-desc">iOS version in development. Stay tuned.</p>
-                        <button class="download-primary disabled-btn" disabled aria-disabled="true">Coming Soon</button>
-                        <ul class="mini-list waiting">
-                            <li>Native camera pipeline</li>
-                            <li>Secure sync layer</li>
-                            <li>Release ETA: TBD</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="hash-check">
-                    <p><strong>Integrity:</strong> After download you can verify file integrity (hash info will be provided in future builds).</p>
                 </div>
             </div>
         </section>
@@ -119,39 +92,22 @@
     <!-- System Requirements Section -->
     <section id="requirements" class="section">
         <div class="container">
-            <h2>System Requirements</h2>
-            <div class="requirements-grid">
-                <div class="req-card">
-                    <iconify-icon icon="material-symbols:computer"></iconify-icon>
-                    <h3>Windows Desktop</h3>
-                    <ul class="req-list">
-                        <li>Windows 10 or later</li>
-                        <li>4GB RAM minimum (8GB recommended)</li>
-                        <li>2GB free disk space</li>
-                        <li>.NET Framework 4.7.2 or later</li>
-                        <li>DirectX 11 compatible graphics</li>
-                    </ul>
+            <h2>Workflow</h2>
+            <div class="workflow-steps">
+                <div class="workflow-step">
+                    <div class="step-number">1</div>
+                    <h3>Desktop: Prepare Data</h3>
+                    <p>Use IDLab Desktop to manage candidate information, import CSV files, and set up your ID card templates.</p>
                 </div>
-                <div class="req-card">
-                    <iconify-icon icon="material-symbols:smartphone"></iconify-icon>
-                    <h3>Android Mobile</h3>
-                    <ul class="req-list">
-                        <li>Android 6.0 (API level 23) or higher</li>
-                        <li>2GB RAM minimum</li>
-                        <li>100MB free storage</li>
-                        <li>Camera access required</li>
-                        <li>File storage permissions</li>
-                    </ul>
+                <div class="workflow-step">
+                    <div class="step-number">2</div>
+                    <h3>Android: Capture Photos</h3>
+                    <p>Export CSV to Android app, photograph candidates on-site, then transfer photos back to your computer.</p>
                 </div>
-                <div class="req-card">
-                    <iconify-icon icon="material-symbols:cloud"></iconify-icon>
-                    <h3>Cloud Integration</h3>
-                    <ul class="req-list">
-                        <li>Internet connection for sync</li>
-                        <li>Optional: Google Drive or OneDrive</li>
-                        <li>Email account for backups</li>
-                        <li>Modern web browser (Edge, Chrome, Firefox)</li>
-                    </ul>
+                <div class="workflow-step">
+                    <div class="step-number">3</div>
+                    <h3>Desktop: Generate Cards</h3>
+                    <p>Import photos, match them to candidates, customize designs, and export print-ready PDF files.</p>
                 </div>
             </div>
         </div>
@@ -160,49 +116,19 @@
     <!-- Download Features Section -->
     <section id="features" class="section alt-bg">
         <div class="container">
-            <h2>What You Get</h2>
+            <h2>Quick Facts</h2>
             <div class="download-features">
                 <div class="feature-item">
-                    <div class="feature-icon">
-                        <iconify-icon icon="material-symbols:flash-on"></iconify-icon>
-                    </div>
-                    <h4>Instant Setup</h4>
-                    <p>No complex installation process. Download and start creating ID cards in minutes.</p>
+                    <h4>Completely Free</h4>
+                    <p>Desktop and Android apps are free for personal and commercial use.</p>
                 </div>
                 <div class="feature-item">
-                    <div class="feature-icon">
-                        <iconify-icon icon="material-symbols:lock"></iconify-icon>
-                    </div>
-                    <h4>Secure & Private</h4>
-                    <p>All data processed locally. No personal information sent to external servers.</p>
+                    <h4>Works Offline</h4>
+                    <p>Both apps function without internet. Only needed for license activation.</p>
                 </div>
                 <div class="feature-item">
-                    <div class="feature-icon">
-                        <iconify-icon icon="material-symbols:design-services"></iconify-icon>
-                    </div>
-                    <h4>Free Templates</h4>
-                    <p>Includes 10+ professional templates ready to use for schools and businesses.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <iconify-icon icon="material-symbols:upload"></iconify-icon>
-                    </div>
-                    <h4>Multiple Export Options</h4>
-                    <p>Export as PDF, PNG, or JPEG. Print-ready quality with batch processing.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <iconify-icon icon="material-symbols:save"></iconify-icon>
-                    </div>
-                    <h4>Auto-Save</h4>
-                    <p>Never lose your work. Projects auto-save every few minutes.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <iconify-icon icon="material-symbols:sync"></iconify-icon>
-                    </div>
-                    <h4>Free Updates</h4>
-                    <p>Get new features and templates automatically. Always stay up to date.</p>
+                    <h4>No Limits</h4>
+                    <p>Create unlimited ID cards for schools, businesses, or events.</p>
                 </div>
             </div>
         </div>
@@ -211,23 +137,23 @@
     <!-- FAQ Section -->
     <section id="faq" class="section">
         <div class="container">
-            <h2>Frequently Asked Questions</h2>
+            <h2>Common Questions</h2>
             <div class="faq-grid">
                 <div class="faq-item">
-                    <h4>Is IDLab really free?</h4>
-                    <p>Yes! IDLab Desktop is completely free for personal and commercial use. No hidden fees or subscriptions.</p>
+                    <h4>Do I need both apps?</h4>
+                    <p>Desktop is required for card creation. Android is optional—use it if you need to capture photos on-site with a mobile device.</p>
                 </div>
                 <div class="faq-item">
-                    <h4>Can I use it offline?</h4>
-                    <p>Absolutely. IDLab works completely offline. Internet is only needed for downloading updates or cloud sync features.</p>
+                    <h4>Can I use Desktop without Android?</h4>
+                    <p>Yes. You can add photos directly to Desktop from any camera or device. Android just makes on-site capture easier.</p>
                 </div>
                 <div class="faq-item">
-                    <h4>What file formats can I import?</h4>
-                    <p>Import CSV, Excel files, or manually enter data. Photos can be JPG, PNG, or BMP format.</p>
+                    <h4>What file formats are supported?</h4>
+                    <p>Import: CSV, Excel. Photos: JPG, PNG, BMP. Export: PDF, PNG, JPG.</p>
                 </div>
                 <div class="faq-item">
-                    <h4>How many cards can I create?</h4>
-                    <p>No limits! Create as many ID cards as you need. Perfect for schools, offices, or events.</p>
+                    <h4>Is it really free?</h4>
+                    <p>Yes. Both apps are completely free for personal and commercial use with no hidden fees.</p>
                 </div>
             </div>
         </div>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - IDLab</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="icon" type="image/x-icon" href="assets/idlab.ico">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.js"></script>
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="page-loader">
+        <div class="loader-content">
+            <div class="loader-spinner">
+                <span class="loader-dot"></span>
+                <span class="loader-dot"></span>
+                <span class="loader-dot"></span>
+                <span class="loader-dot"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dark Mode Toggle Button -->
+    <button class="dark-mode-toggle" aria-label="Toggle dark mode">
+        <iconify-icon icon="mdi:moon-waxing-crescent" width="28" height="28"></iconify-icon>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="navbar fade-in-content" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo" aria-label="IDLab Home">
+                <img src="assets/idlab.ico" alt="IDLab Logo" class="logo" loading="lazy">
+                <span class="nav-brand-text">IDLab</span>
+            </a>
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="blog-menu">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-wrapper" id="blog-menu">
+                <ul class="nav-menu">
+                    <li class="nav-dropdown">
+                        <a href="#" class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+                            Learn <iconify-icon icon="mdi:chevron-down" width="20" height="20"></iconify-icon>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="documentation.html" role="menuitem">Documentation</a></li>
+                            <li><a href="about.html" role="menuitem">About</a></li>
+                            <li><a href="blog.html" role="menuitem">Blog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="download.html">Download</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="#templates">Templates</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="nav-cta">
+                    <a href="download.html" class="nav-download-btn" aria-label="Download IDLab">Get IDLab</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Hero Section -->
+    <section class="about-hero fade-in-content">
+        <div class="container">
+            <h1>IDLab Blog</h1>
+            <p class="lead">Insights, tutorials, and updates from the IDLab team</p>
+        </div>
+    </section>
+
+    <!-- Blog Posts Section -->
+    <section class="section fade-in-content">
+        <div class="container">
+            <div class="blog-grid">
+                <!-- Blog Post 1 -->
+                <article class="blog-post">
+                    <div class="blog-post-image">
+                        <img src="assets/blog/id-design-tips.jpg" alt="ID Card Design Tips" onerror="this.src='assets/idlab.ico'">
+                        <div class="blog-post-category">Design Tips</div>
+                    </div>
+                    <div class="blog-post-content">
+                        <div class="blog-post-meta">
+                            <span><iconify-icon icon="mdi:calendar"></iconify-icon> October 15, 2025</span>
+                            <span><iconify-icon icon="mdi:clock-outline"></iconify-icon> 5 min read</span>
+                        </div>
+                        <h2>10 Essential Tips for Professional ID Card Design</h2>
+                        <p>Creating professional ID cards requires more than just adding a photo and name. Learn the best practices for designing ID cards that are both functional and visually appealing...</p>
+                        <a href="#" class="read-more">Read More <iconify-icon icon="mdi:arrow-right"></iconify-icon></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="blog-post">
+                    <div class="blog-post-image">
+                        <img src="assets/blog/batch-processing.jpg" alt="Batch Processing Guide" onerror="this.src='assets/idlab.ico'">
+                        <div class="blog-post-category">Tutorial</div>
+                    </div>
+                    <div class="blog-post-content">
+                        <div class="blog-post-meta">
+                            <span><iconify-icon icon="mdi:calendar"></iconify-icon> October 10, 2025</span>
+                            <span><iconify-icon icon="mdi:clock-outline"></iconify-icon> 8 min read</span>
+                        </div>
+                        <h2>How to Process 500+ ID Cards in Minutes</h2>
+                        <p>Discover the power of batch processing with IDLab. This comprehensive guide walks you through importing Excel data, managing photos, and generating hundreds of ID cards efficiently...</p>
+                        <a href="#" class="read-more">Read More <iconify-icon icon="mdi:arrow-right"></iconify-icon></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="blog-post">
+                    <div class="blog-post-image">
+                        <img src="assets/blog/mobile-app.jpg" alt="Mobile App Features" onerror="this.src='assets/idlab.ico'">
+                        <div class="blog-post-category">Product Update</div>
+                    </div>
+                    <div class="blog-post-content">
+                        <div class="blog-post-meta">
+                            <span><iconify-icon icon="mdi:calendar"></iconify-icon> October 5, 2025</span>
+                            <span><iconify-icon icon="mdi:clock-outline"></iconify-icon> 6 min read</span>
+                        </div>
+                        <h2>Introducing IDLab Mobile: Capture Photos On-Site</h2>
+                        <p>We're excited to announce the launch of our mobile companion app! Now you can capture student photos directly on your Android device and sync them seamlessly with the desktop application...</p>
+                        <a href="#" class="read-more">Read More <iconify-icon icon="mdi:arrow-right"></iconify-icon></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 4 -->
+                <article class="blog-post">
+                    <div class="blog-post-image">
+                        <img src="assets/blog/security-features.jpg" alt="Security Features" onerror="this.src='assets/idlab.ico'">
+                        <div class="blog-post-category">Security</div>
+                    </div>
+                    <div class="blog-post-content">
+                        <div class="blog-post-meta">
+                            <span><iconify-icon icon="mdi:calendar"></iconify-icon> September 28, 2025</span>
+                            <span><iconify-icon icon="mdi:clock-outline"></iconify-icon> 7 min read</span>
+                        </div>
+                        <h2>Protecting Student Data: Security Best Practices</h2>
+                        <p>Learn how IDLab keeps your student and employee data secure. From local storage to encryption, we cover all the security features built into the application...</p>
+                        <a href="#" class="read-more">Read More <iconify-icon icon="mdi:arrow-right"></iconify-icon></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 5 -->
+                <article class="blog-post">
+                    <div class="blog-post-image">
+                        <img src="assets/blog/template-customization.jpg" alt="Template Customization" onerror="this.src='assets/idlab.ico'">
+                        <div class="blog-post-category">Tutorial</div>
+                    </div>
+                    <div class="blog-post-content">
+                        <div class="blog-post-meta">
+                            <span><iconify-icon icon="mdi:calendar"></iconify-icon> September 20, 2025</span>
+                            <span><iconify-icon icon="mdi:clock-outline"></iconify-icon> 10 min read</span>
+                        </div>
+                        <h2>Customizing ID Templates for Your Institution</h2>
+                        <p>Make your ID cards truly unique with custom templates. This guide shows you how to incorporate your school's branding, colors, and layout preferences...</p>
+                        <a href="#" class="read-more">Read More <iconify-icon icon="mdi:arrow-right"></iconify-icon></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 6 -->
+                <article class="blog-post">
+                    <div class="blog-post-image">
+                        <img src="assets/blog/case-study.jpg" alt="School Success Story" onerror="this.src='assets/idlab.ico'">
+                        <div class="blog-post-category">Case Study</div>
+                    </div>
+                    <div class="blog-post-content">
+                        <div class="blog-post-meta">
+                            <span><iconify-icon icon="mdi:calendar"></iconify-icon> September 15, 2025</span>
+                            <span><iconify-icon icon="mdi:clock-outline"></iconify-icon> 12 min read</span>
+                        </div>
+                        <h2>How Lusaka Secondary School Created 1,200 IDs in One Day</h2>
+                        <p>Read how Lusaka Secondary School leveraged IDLab to create ID cards for their entire student body in record time. Complete with photos, data validation, and professional results...</p>
+                        <a href="#" class="read-more">Read More <iconify-icon icon="mdi:arrow-right"></iconify-icon></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="section alt-bg fade-in-content">
+        <div class="container">
+            <div class="newsletter-section">
+                <div class="newsletter-content">
+                    <iconify-icon icon="mdi:email-newsletter" width="48" height="48"></iconify-icon>
+                    <h2>Stay Updated</h2>
+                    <p>Subscribe to our newsletter for the latest tips, tutorials, and product updates.</p>
+                </div>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn primary-btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>IDLab</h3>
+                    <p>Professional ID card creation made simple.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><iconify-icon icon="mdi:facebook"></iconify-icon></a>
+                        <a href="#" aria-label="Twitter"><iconify-icon icon="mdi:twitter"></iconify-icon></a>
+                        <a href="#" aria-label="LinkedIn"><iconify-icon icon="mdi:linkedin"></iconify-icon></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="about.html">About</a>
+                        <a href="features.html">Features</a>
+                        <a href="pricing.html">Pricing</a>
+                        <a href="documentation.html">Documentation</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <div class="footer-links">
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 IDLab. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js" defer></script>
+</body>
+</html>

@@ -11,11 +11,11 @@
     <!-- Loading Animation -->
     <div class="page-loader">
         <div class="loader-content">
-            <img src="assets/idlab.ico" alt="IDLab Logo" class="loader-logo">
-            <div class="loader-spinner"></div>
-            <div class="loader-text">Loading Privacy Policy...</div>
-            <div class="loader-progress">
-                <div class="loader-progress-bar"></div>
+            <div class="loader-spinner">
+                <span class="loader-dot"></span>
+                <span class="loader-dot"></span>
+                <span class="loader-dot"></span>
+                <span class="loader-dot"></span>
             </div>
         </div>
     </div>
@@ -36,11 +36,19 @@
             </button>
             <div class="nav-wrapper" id="privacy-menu">
                 <ul class="nav-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+                            Learn <iconify-icon icon="mdi:chevron-down" width="20" height="20"></iconify-icon>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="documentation.html" role="menuitem">Documentation</a></li>
+                            <li><a href="about.html" role="menuitem">About</a></li>
+                            <li><a href="blog.html" role="menuitem">Blog</a></li>
+                        </ul>
+                    </li>
                     <li><a href="download.html">Download</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
                     <li><a href="index.html#templates">Templates</a></li>
-                    <li><a href="documentation.html">Documentation</a></li>
                     <li><a href="index.html#contact">Contact</a></li>
                 </ul>
                 <div class="nav-cta">
