@@ -593,6 +593,85 @@
             transform: rotate(90deg);
         }
 
+        /* Confirmation Modal */
+        .confirmation-modal-content {
+            max-width: 450px;
+            text-align: center;
+            padding: 40px 32px;
+        }
+
+        .confirmation-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(27, 192, 152, 0.1), rgba(27, 192, 152, 0.2));
+            animation: scaleIn 0.4s ease-out;
+        }
+
+        .confirmation-icon i {
+            font-size: 40px;
+            color: var(--primary-green);
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .confirmation-modal-content h2 {
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .confirmation-modal-content p {
+            color: var(--text-light);
+            font-size: 1rem;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .confirmation-modal-content .license-key {
+            background: #f5f5f5;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+            color: var(--primary-green);
+            font-weight: 700;
+            margin: 16px 0;
+            word-break: break-all;
+            border: 2px dashed var(--primary-green);
+        }
+
+        .confirmation-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .confirmation-actions .btn {
+            min-width: 120px;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .btn-cancel {
+            background: #e0e0e0;
+            color: var(--text-dark);
+        }
+
+        .btn-cancel:hover {
+            background: #d0d0d0;
+            transform: translateY(-2px);
+        }
+
         .detail-row {
             display: flex;
             padding: 14px 0;
@@ -682,6 +761,27 @@
                 width: 95%;
                 padding: 24px;
                 max-height: 90vh;
+            }
+
+            .confirmation-modal-content {
+                padding: 32px 24px;
+            }
+
+            .confirmation-icon {
+                width: 70px;
+                height: 70px;
+            }
+
+            .confirmation-icon i {
+                font-size: 35px;
+            }
+
+            .confirmation-actions {
+                flex-direction: column;
+            }
+
+            .confirmation-actions .btn {
+                width: 100%;
             }
 
             .detail-row {
@@ -926,11 +1026,31 @@
         </div>
     </div>
 
+    <!-- Confirmation Modal -->
+    <div id="confirmation-modal" class="modal">
+        <div class="modal-content confirmation-modal-content">
+            <div class="confirmation-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2 id="confirmation-title">Confirm Action</h2>
+            <p id="confirmation-message">Are you sure you want to proceed?</p>
+            <div class="confirmation-actions">
+                <button id="confirmation-cancel-btn" class="btn btn-cancel">
+                    <i class="fas fa-times"></i> Cancel
+                </button>
+                <button id="confirmation-confirm-btn" class="btn btn-approve">
+                    <i class="fas fa-check"></i> Confirm
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-functions-compat.js"></script>
     
     <script src="js/firebase-config.js"></script>
     <script src="js/auth.js"></script>

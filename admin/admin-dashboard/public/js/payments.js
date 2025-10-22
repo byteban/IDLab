@@ -1,5 +1,61 @@
 // Payment Management Functions
 
+// Confirmation Modal Functions
+function showConfirmationModal(title, message, onConfirm, icon = 'fa-check-circle', iconColor = 'var(--primary-green)') {
+    return new Promise((resolve) => {
+        const modal = document.getElementById('confirmation-modal');
+        const titleEl = document.getElementById('confirmation-title');
+        const messageEl = document.getElementById('confirmation-message');
+        const iconEl = document.querySelector('.confirmation-icon i');
+        const confirmBtn = document.getElementById('confirmation-confirm-btn');
+        const cancelBtn = document.getElementById('confirmation-cancel-btn');
+        
+        // Set content
+        titleEl.textContent = title;
+        // Support HTML in message for line breaks
+        messageEl.innerHTML = message.replace(/\n/g, '<br>');
+        iconEl.className = `fas ${icon}`;
+        iconEl.style.color = iconColor;
+        
+        // Show modal
+        modal.classList.add('show');
+        
+        // Handle confirm
+        const handleConfirm = () => {
+            modal.classList.remove('show');
+            cleanup();
+            resolve(true);
+            if (onConfirm) onConfirm();
+        };
+        
+        // Handle cancel
+        const handleCancel = () => {
+            modal.classList.remove('show');
+            cleanup();
+            resolve(false);
+        };
+        
+        // Cleanup function
+        const cleanup = () => {
+            confirmBtn.removeEventListener('click', handleConfirm);
+            cancelBtn.removeEventListener('click', handleCancel);
+            modal.removeEventListener('click', handleBackdropClick);
+        };
+        
+        // Close on backdrop click
+        const handleBackdropClick = (e) => {
+            if (e.target === modal) {
+                handleCancel();
+            }
+        };
+        
+        // Attach event listeners
+        confirmBtn.addEventListener('click', handleConfirm);
+        cancelBtn.addEventListener('click', handleCancel);
+        modal.addEventListener('click', handleBackdropClick);
+    });
+}
+
 async function loadPayments() {
     const container = document.getElementById('payments-container');
     const statusFilter = document.getElementById('payment-status-filter').value;
@@ -55,6 +111,7 @@ async function loadPayments() {
                             <th><i class="fas fa-box"></i> Package</th>
                             <th><i class="fas fa-money-bill"></i> Amount</th>
                             <th><i class="fas fa-info-circle"></i> Status</th>
+                            <th><i class="fas fa-paper-plane"></i> Email</th>
                             <th><i class="fas fa-cog"></i> Actions</th>
                         </tr>
                     </thead>
@@ -73,6 +130,17 @@ async function loadPayments() {
                 statusBadge = '<span class="status-badge status-pending"><i class="fas fa-clock"></i> Pending</span>';
             }
             
+            let emailStatusBadge = '';
+            if (payment.status === 'approved') {
+                if (payment.email_sent) {
+                    emailStatusBadge = '<span class="status-badge status-active" title="Email sent successfully"><i class="fas fa-check"></i> Sent</span>';
+                } else {
+                    emailStatusBadge = '<span class="status-badge status-pending" title="Email pending"><i class="fas fa-clock"></i> Pending</span>';
+                }
+            } else {
+                emailStatusBadge = '<span style="color: #7f8c8d;">-</span>';
+            }
+            
             html += `
                 <tr>
                     <td>${formatDate(payment.submitted_at)}</td>
@@ -82,6 +150,7 @@ async function loadPayments() {
                     <td>${payment.package_type || 'N/A'}</td>
                     <td><strong>${formatCurrency(payment.amount)}</strong></td>
                     <td>${statusBadge}</td>
+                    <td>${emailStatusBadge}</td>
                     <td>
                         <button class="btn btn-view" onclick="viewPaymentDetails('${payment.id}')">
                             <i class="fas fa-eye"></i> View
@@ -178,6 +247,26 @@ async function viewPaymentDetails(paymentId) {
                 <div class="detail-label"><i class="fas fa-calendar"></i> Submitted:</div>
                 <div class="detail-value">${formatDate(payment.submitted_at)}</div>
             </div>
+            ${payment.email_sent ? `
+            <div class="detail-row">
+                <div class="detail-label"><i class="fas fa-envelope-circle-check"></i> Email Status:</div>
+                <div class="detail-value">
+                    <span class="status-badge status-active">
+                        <i class="fas fa-check"></i> Email Sent
+                    </span>
+                    ${payment.email_sent_at ? `<br><small>Sent: ${formatDate(payment.email_sent_at)}</small>` : ''}
+                </div>
+            </div>
+            ` : payment.status === 'approved' ? `
+            <div class="detail-row">
+                <div class="detail-label"><i class="fas fa-envelope"></i> Email Status:</div>
+                <div class="detail-value">
+                    <span class="status-badge status-pending">
+                        <i class="fas fa-clock"></i> Pending
+                    </span>
+                </div>
+            </div>
+            ` : ''}
             ${payment.proof_of_payment_url ? `
             <div class="detail-row">
                 <div class="detail-label"><i class="fas fa-file-image"></i> Proof of Payment:</div>
@@ -197,6 +286,12 @@ async function viewPaymentDetails(paymentId) {
                     <i class="fas fa-times"></i> Reject
                 </button>
             </div>
+            ` : payment.status === 'approved' ? `
+            <div style="margin-top: 24px;">
+                <button class="btn btn-view" onclick="resendLicenseEmail('${paymentId}');">
+                    <i class="fas fa-paper-plane"></i> Resend License Email
+                </button>
+            </div>
             ` : ''}
         `;
         
@@ -209,7 +304,16 @@ async function viewPaymentDetails(paymentId) {
 }
 
 async function approvePayment(paymentId) {
-    if (!confirm('Are you sure you want to approve this payment and generate a license?')) {
+    // Show custom confirmation modal
+    const confirmed = await showConfirmationModal(
+        'Approve Payment',
+        'Are you sure you want to approve this payment and generate a license?',
+        null,
+        'fa-check-circle',
+        'var(--primary-green)'
+    );
+    
+    if (!confirmed) {
         return;
     }
     
@@ -253,7 +357,14 @@ async function approvePayment(paymentId) {
             max_devices: getMaxDevicesForType(payment.package_type)
         });
         
-        alert(`Payment approved! License key generated: ${licenseKey}\n\nPlease send this to the user via email.`);
+        // Show success message
+        await showConfirmationModal(
+            'Payment Approved!',
+            `License key generated:<br><div class="license-key">${licenseKey}</div>Please send this to the user via email.`,
+            null,
+            'fa-check-circle',
+            'var(--success)'
+        );
         
         // Reload payments
         loadPayments();
@@ -287,6 +398,50 @@ async function rejectPayment(paymentId) {
     } catch (error) {
         console.error('Error rejecting payment:', error);
         alert('Error rejecting payment: ' + error.message);
+    }
+}
+
+async function resendLicenseEmail(paymentId) {
+    // Show custom confirmation modal
+    const confirmed = await showConfirmationModal(
+        'Resend License Email',
+        'Are you sure you want to resend the license email to the user?',
+        null,
+        'fa-envelope',
+        'var(--info)'
+    );
+    
+    if (!confirmed) {
+        return;
+    }
+    
+    try {
+        // Call the Cloud Function to resend email
+        const resendFunction = firebase.functions().httpsCallable('resendLicenseEmail');
+        const result = await resendFunction({ paymentId: paymentId });
+        
+        if (result.data.success) {
+            // Show success message
+            await showConfirmationModal(
+                'Email Sent!',
+                'License email has been resent successfully!',
+                null,
+                'fa-check-circle',
+                'var(--success)'
+            );
+            
+            // Refresh the payment details
+            closeModal();
+            setTimeout(() => {
+                viewPaymentDetails(paymentId);
+            }, 500);
+        } else {
+            alert('Failed to resend email. Please try again.');
+        }
+        
+    } catch (error) {
+        console.error('Error resending email:', error);
+        alert('Error resending email: ' + error.message + '\n\nPlease ensure the Cloud Functions are deployed.');
     }
 }
 
