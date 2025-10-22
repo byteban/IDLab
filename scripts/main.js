@@ -38,12 +38,11 @@ const modalConfig = {
     autoClose: false,          // Don't auto-close construction notice
     autoCloseDelay: 50000,
     showOnce: true,
-    title: "🚧 Site Under Construction",
+    title: "Site Under Construction",
     message: `
         <p><strong>Thank you for visiting!</strong></p>
         <p>Our website is currently undergoing improvements to serve you better.</p>
         <p>During this time, some features may be limited or unavailable.</p>
-        <p>We're working hard to complete the updates soon and appreciate your patience.</p>
         <p>Please check back regularly for new content and features.</p>
     `,
     icon: "mdi:hammer-wrench",
